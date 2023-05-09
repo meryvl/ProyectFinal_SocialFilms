@@ -1,5 +1,7 @@
 import React from "react";
 const ButtonSearch =({ setSearchkey, searchMovies})=>{
+
+	
     return(
 <form className="d-flex search" onSubmit={searchMovies}>
     	<input className="mr-sm-2 " type="text" placeholder="Search" aria-label="Search" onChange={(e)=>setSearchkey(e.target.value)}/>

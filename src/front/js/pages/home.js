@@ -1,23 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import axios from "axios";
 import YouTube from 'react-youtube';
 import ButtonSearch from "../component/ButtonSearch";
+import { useAppContext } from "../store/appContext";
 export const Home = () => {
-	const { store, actions } = useContext(Context);
-	const API_URL = "https://api.themoviedb.org/3"
-	const API_KEY = "85acd1db7d013b618f9633e17890c3b8"
-	const IMAGE_PATH= "https://image.tmdb.org/t/p/original"
-	const URL_IMAGE= "https://image.tmdb.org/t/p/original"
-	
+const {store, actions} = useAppContext();
+const { movies, setMovie, setMovies, searchKey, setSearchkey, trailer , setTrailer, movie , playing , setPlaying, 
+  API_KEY,
+  API_URL,
+  IMAGE_PATH,
+  URL_IMAGE} = store
 
-	const [movies , setMovies]= useState([])
-	const [searchKey , setSearchkey]= useState("")
-	const [trailer , setTrailer] = useState(null)
-	const [movie , setMovie] = useState({title: "Loging Movies"})
-	const [playing , setPlaying] = useState(false);
- 
+
 	//funcion de peticion de api
 
  const fetchMovies = async( searchKey) =>{
@@ -145,7 +140,7 @@ const selectMovie = async(movie)=>{
 				<div className="row">
 					{movies.map((movie)=>{
 						return (<div key={movie.id} className="col-md-4 mb-3" onClick={()=> selectMovie(movie)}>
-							<img src={`${URL_IMAGE + movie.poster_path}`} alt="" height={300} width="100%"/>
+							<img src={`${URL_IMAGE + movie.poster_path}`} alt="" height={450} width="100%"/>
 							<h4 className="text-center">{movie.title}</h4>
 						</div>)
 
