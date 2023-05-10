@@ -7,7 +7,7 @@ return(<>
     <div className="circle"></div>
     <div className="circle"></div>
     <div className="inLoginForm">
-      <form onsubmit="return false">
+      <form className="form "onsubmit="return false">
         <div className="title">
           <h3>Login Here</h3>
         </div>
@@ -20,6 +20,7 @@ return(<>
           <input type="email" placeholder="Enter Password" id="password"/>
         </div>
         <button className="submitForm">Log In</button>
+        <p className="create">Create cuenta</p>
         <div className="social">
           <div className="go"><i class="fab fa-google"></i></div>
           <div className="fb"><i class="fab fa-facebook"></i></div>

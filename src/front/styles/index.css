@@ -126,7 +126,7 @@ input[type = "radio"]{
 .inLoginForm form {
   top: 50%;
   left: 50%;
-  width: 20rem;
+  width: 150rem;
   height: 30rem;
   max-width: 320px;
   position: absolute;
@@ -139,10 +139,10 @@ input[type = "radio"]{
   background-color: rgba(255, 255, 255, 0.13);
 }
 
-form * {
+.form * {
+  color: #fff;
   border: none;
   outline: none;
-  color: #ffffff;
   letter-spacing: 0.5px;
   font-family: "Poppins", sans-serif;
 }
@@ -163,7 +163,7 @@ form * {
 
 .inputGroup input {
   width: 92%;
-  height: 50px;
+  height: 40px;
   display: block;
   padding: 0 10px;
   margin-top: 8px;
@@ -180,7 +180,7 @@ form * {
 .submitForm {
   width: 100%;
   z-index: 1;
-  margin-top: 30px;
+  margin-top: 40px;
   color: #080710;
   padding: 10px 0;
   font-size: 18px;
@@ -221,6 +221,10 @@ background-size: 800%;
   transition: all 0.35s;
 }
 
+.create{
+  margin: 10px;
+  font-size: 10px;
+}
 
 .social {
   display: flex;
@@ -234,7 +238,7 @@ background-size: 800%;
   height: 3rem;
   display: flex;
   cursor: pointer;
-  color: #eaf0fb;
+  color: #d0d5df;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
