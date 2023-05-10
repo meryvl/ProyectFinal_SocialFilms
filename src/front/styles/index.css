@@ -37,6 +37,13 @@ body{
 
   }
 
+input[type = "radio"]{
+  display: none;
+}
+.start{
+  cursor: pointer;
+  transition: color 200ms
+}
 
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
   * {

@@ -4,6 +4,7 @@ import axios from "axios";
 import YouTube from 'react-youtube';
 import ButtonSearch from "../component/ButtonSearch";
 import { useAppContext } from "../store/appContext";
+import Starts from "../component/Stars";
 export const Home = () => {
 const {store, actions} = useAppContext();
 const { movies, setMovie, setMovies, searchKey, setSearchkey, trailer , setTrailer, movie , playing , setPlaying, 
@@ -139,9 +140,10 @@ const selectMovie = async(movie)=>{
 			<div className="container mt-3">
 				<div className="row">
 					{movies.map((movie)=>{
-						return (<div key={movie.id} className="col-md-4 mb-3" onClick={()=> selectMovie(movie)}>
-							<img src={`${URL_IMAGE + movie.poster_path}`} alt="" height={450} width="100%"/>
+						return (<div key={movie.id} className="col-md-4 mb-3">
+							<img src={`${URL_IMAGE + movie.poster_path}`} alt="" height={450} width="100%" onClick={()=> selectMovie(movie)}/>
 							<h4 className="text-center">{movie.title}</h4>
+              <Starts />
 						</div>)
 
 					})}
