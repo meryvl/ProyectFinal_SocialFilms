@@ -1,7 +1,10 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Login =()=>{
 return(<>
+<Link to="/">
+				<button className="btn btn-primary justify-content-end">Back home</button>
+</Link>
 <div className="bodyPage">
 <div className="inFormBackground">
     <div className="circle"></div>
@@ -20,7 +23,7 @@ return(<>
           <input type="email" placeholder="Enter Password" id="password"/>
         </div>
         <button className="submitForm">Log In</button>
-        <p className="create">Create cuenta</p>
+        <Link to="/createcuenta" className="create">Create cuenta</Link>
       
       </form>
     </div>

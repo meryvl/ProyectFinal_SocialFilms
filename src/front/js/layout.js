@@ -6,6 +6,7 @@ import { BackendURL } from "./component/backendURL";
 import { Home } from "./pages/home";
 import Login from "./pages/Login";
 import { Single } from "./pages/single";
+import CreateCuenta from "./pages/CreateCuenta";
 import AppContextProvider from "./store/appContext";
 
 import { Navbar1 } from "./component/navbar";
@@ -26,8 +27,10 @@ const Layout = () => {
                 <ScrollToTop>
                     <Navbar1 />
                     <Routes>
+
                         <Route element={<Home />} path="/" />
                         <Route element={<Login/>} path="/login" />
+                        <Route element={<CreateCuenta />} path="/createcuenta" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
