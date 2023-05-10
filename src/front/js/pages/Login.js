@@ -21,11 +21,7 @@ return(<>
         </div>
         <button className="submitForm">Log In</button>
         <p className="create">Create cuenta</p>
-        <div className="social">
-          <div className="go"><i class="fab fa-google"></i></div>
-          <div className="fb"><i class="fab fa-facebook"></i></div>
-          <div className="tw"><i class="fab fa-twitter"></i></div>
-        </div>
+      
       </form>
     </div>
   </div>
