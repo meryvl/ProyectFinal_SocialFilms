@@ -15,7 +15,7 @@ export const Navbar1 = () => {
 			<span className="navbar-brand mb-0 m-3 h1 letterIcon">Social Films</span>
 			</Navbar.Brand> 
 			<Navbar.Brand  className="justify-content-end">
-			<Nav.Link href="/demo">
+			<Nav.Link href="/login">
 			Iniciar Sesion
 			</Nav.Link>
         </Navbar.Brand >
