@@ -182,37 +182,45 @@ form * {
   z-index: 1;
   margin-top: 30px;
   color: #080710;
-  padding: 15px 0;
+  padding: 10px 0;
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
   overflow: hidden;
   border-radius: 5px;
   position: relative;
-  background: #fff;
-}
-
-.submitForm::before {
-  content: "";
-  top: 0%;
-  left: -100%;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  border-radius: 5px;
-  position: absolute;
-  transition: left 0.4s, color 0.4s;
-  background-color: #202020;
+  background: linear-gradient(45deg, 
+  red , blue, deeppink , blue,
+  red , blue , deeppink);
+background-size: 800%;
 }
 
 .submitForm:hover {
-  color: #fff;
+  color: #fff; /* color de fuente hover */
+}
+.submitForm:after {
+  content: "";
+  background: #4741d7; /* color de fondo hover */
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  right: -100%;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.submitForm:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
 }
 
-.submitForm:hover::before {
-  left: 0%;
-}
 
 .social {
   display: flex;
