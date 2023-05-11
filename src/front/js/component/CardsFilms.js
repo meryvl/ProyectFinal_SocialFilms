@@ -1,11 +1,12 @@
 import React from "react";
-const CardsFilms =({movie, movietitle } )=>{
+
+const CardsFilms =({movie,  URL_IMAGE , selectMovie } )=>{
 
 return(
     <>
-    <div key={movie.id} className="col-md-4 mb-3">
-	<img src={`${URL_IMAGE + movie.poster_path}`} alt="" height={300} width="100%"/>
-	<h4 className="text-center">{movietitle}</h4>
+   <div>
+	<img src={`${URL_IMAGE + movie.poster_path}`} alt="" height={450} width="100%" onClick={()=> selectMovie(movie)}/>
+	<h4 className="text-center">{movie.title}</h4>
     </div>
     </>
 )
