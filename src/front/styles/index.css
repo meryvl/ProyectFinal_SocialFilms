@@ -45,6 +45,15 @@ input[type = "radio"]{
   transition: color 200ms
 }
 
+.styleCards{
+
+color: #e5e5e5;
+  border: solid 1px rgb(34, 34, 53);
+  background-color: #0c1322;
+  border-radius: 5px;
+  padding: 1%;
+}
+
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
   * {
     margin: 0;
@@ -58,7 +67,6 @@ input[type = "radio"]{
   min-height: 700px;
   background-size: cover;
   background-position:center;
-
   display: flex;
   align-items: flex-end;
 }
@@ -79,11 +87,14 @@ input[type = "radio"]{
   height: 600px;
 }
 
+.imgCards:hover{
+ 
+}
 
-
-/*********************************************/
+/***************Form Login******************************/
 
 .bodyPage {
+
   height: 100vh;
   display: flex;
   overflow: hidden;
@@ -93,7 +104,7 @@ input[type = "radio"]{
 }
 
 .inFormBackground {
-  margin: 0rem 2rem;
+  margin: 0rem 1rem;
 }
 
 .inFormBackground,
@@ -112,19 +123,19 @@ input[type = "radio"]{
 }
 
 .circle:first-child {
-  left: -20%;
-  top: -12%;
+  left: -28%;
+  top: -35%;
   background: linear-gradient(#ff0060, #c302b5);
 }
 
 .circle:nth-child(2) {
-  right: -22%;
-  bottom: -14%;
+  right: -28%;
+  bottom: 4%;
   background: linear-gradient(164deg, #144e7cfc, #1877f2);
 }
 
-.inLoginForm form {
-  top: 50%;
+.inLoginForm .form {
+  top: 30%;
   left: 50%;
   width: 150rem;
   height: 30rem;
@@ -195,12 +206,14 @@ input[type = "radio"]{
 background-size: 800%;
 }
 
+
+
 .submitForm:hover {
   color: #fff; /* color de fuente hover */
 }
 .submitForm:after {
   content: "";
-  background: #4741d7; /* color de fondo hover */
+  background:rgba(8, 7, 16, 0.6); /* color de fondo hover */
   position: absolute;
   z-index: -1;
   padding: 16px 20px;
@@ -221,7 +234,63 @@ background-size: 800%;
   transition: all 0.35s;
 }
 
-.create{
-  margin: 10px;
-  font-size: 10px;
+
+
+
+
+
+.form-register {
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  background: #24303c;
+  padding: 30px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 4px;
+  font-family: 'calibri';
+  color: white;
+  box-shadow: 7px 13px 37px #000;
+}
+
+.form-register h4 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.controls {
+  width: 100%;
+  background: #24303c;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 2px solid #686e79;
+  font-family: 'calibri';
+  font-size: 18px;
+  color: white;
+}
+
+.form-register p {
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 40px;
+}
+
+.form-register a {
+  color: white;
+  text-decoration: none;
+}
+
+.form-register a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.form-register .botons {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
 }

@@ -79,14 +79,11 @@ const selectMovie = async(movie)=>{
     <Banner IMAGE_PATH={IMAGE_PATH} movie={movie}  trailer={trailer} setPlaying={setPlaying} playing={playing}/>    
     </div>
 
-
-
-
 		{/*contenedor donde iran las peliculas*/ }
 			<div className="container mt-3">
 				<div className="row">
 					{movies.map((movie)=>{
-						return ( <div key={movie.id} className="col-md-4 mb-3">
+						return ( <div key={movie.id} className="col-md-4 mb-3 styleCards">
               <CardsFilms  movie={movie}  URL_IMAGE={ URL_IMAGE}  selectMovie={selectMovie}/>
               <Starts />
 						</div>)
