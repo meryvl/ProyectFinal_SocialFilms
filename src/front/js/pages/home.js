@@ -80,7 +80,7 @@ const selectMovie = async(movie)=>{
     </div>
 
 		{/*contenedor donde iran las peliculas*/ }
-			<div className="container mt-3">
+			<div className="container mt-3 ">
 				<div className="row">
 					{movies.map((movie)=>{
 						return ( <div key={movie.id} className="col-md-4 mb-3 styleCards">
