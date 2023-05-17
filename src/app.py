@@ -63,6 +63,23 @@ def serve_any_other_file(path):
     response.cache_control.max_age = 0 # avoid cache memory
     return response
 
+@app.route('/new', methods=['POST'])
+def newUser():
+    body = request.json
+
+    if body["email"] == None or body["password"] == None:
+        return jsonify({"msg": "Insert and email or password"}), 400
+
+    # Crear un nuevo usuario en la base de datos
+    new_user = User(name=body["name"],lastname=body["lastname"] ,email = body["email"], password = body["password"], is_active = True)
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return jsonify({"code": 200, "mensaje": "Usuario creado correctamente"})
+
+
+
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
