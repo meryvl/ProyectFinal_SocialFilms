@@ -45,7 +45,7 @@ const searchMovies =(e)=>{
 }
 
 
-
+console.log(movies)
  
 useEffect(()=>{
 fetchMovies();

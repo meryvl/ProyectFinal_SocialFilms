@@ -7,7 +7,7 @@ import { useAppContext } from "../store/appContext";
 import Starts from "../component/Stars";
 import CardsFilms from "../component/CardsFilms";
 import Banner from "../component/Banner";
-
+import GenreFilms from "../component/GenreFilms";
 
 export const Home = () => {
 const {store, actions} = useAppContext();
@@ -72,6 +72,8 @@ const selectMovie = async(movie)=>{
 }
 
 	return (
+<>
+		<GenreFilms />
 		<div >
 		<ButtonSearch  setSearchkey={setSearchkey}  searchMovies={searchMovies} />
 		{/*Aqui va el banner*/ }
@@ -94,5 +96,6 @@ const selectMovie = async(movie)=>{
 			</div>
 		
 		</div>
+		</>
 	);
 };
