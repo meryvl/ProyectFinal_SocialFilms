@@ -71,7 +71,12 @@ def newUser():
         return jsonify({"msg": "Insert and email or password"}), 400
 
     # Crear un nuevo usuario en la base de datos
-    new_user = User(name=body["name"],lastname=body["lastname"] ,email = body["email"], password = body["password"], is_active = True)
+    new_user = User(
+            email = body["email"],
+            password = body["password"], 
+            name = body["name"], 
+            lastName = body["lastName"], 
+        )
 
     db.session.add(new_user)
     db.session.commit()

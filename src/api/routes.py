@@ -16,3 +16,26 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+
+@app.route('/users', methods=['GET'])
+def getUsers():
+    try:
+        users = User.query.all()
+        toReturn = [users.serialize() for users in users]
+        return jsonify(toReturn), 200
+
+    except Exception:
+        return jsonify({"msg": "Ha ocurrido un error"}) , 500
+    
+
+@app.route('/user/<int:position>', methods=['GET'])
+def getPeopleId(position):
+    try:
+       
+        userId =  User.query.filter_by(id=position).first() 
+        return jsonify(userId.serialize()), 200
+
+    except Exception:
+        return jsonify({"msg": "Ha ocurrido un error"}) , 500
+    
