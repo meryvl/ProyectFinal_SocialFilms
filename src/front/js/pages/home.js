@@ -70,10 +70,20 @@ const selectMovie = async(movie)=>{
 	setMovie(movie)
 	window.scrollTo(0,0)
 }
+const [action, setAction]=useState(false)
+const startStop =()=>{
+	if(action == false){
+		setAction(true)
+	}else if(action == true){
+		setAction(false)
+	}
 
+}
 	return (
 <>
-		<GenreFilms />
+<a href="#" onClick={startStop}>Buscar por genero</a>
+{action == true ? <GenreFilms /> : ""}
+		
 		<div >
 		<ButtonSearch  setSearchkey={setSearchkey}  searchMovies={searchMovies} />
 		{/*Aqui va el banner*/ }
