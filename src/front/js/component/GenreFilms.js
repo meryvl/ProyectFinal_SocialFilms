@@ -31,10 +31,10 @@ const hanledGenrs=( id)=>{
    setSelecte(idSelect)
    console.log(selectedGens)
 
-    return (fetch(api_url+'&with_genres='+selectedGens)
+    return (fetch("https://api.themoviedb.org/3/discover/movie?api_key=85acd1db7d013b618f9633e17890c3b8&with_genres="+id)
      .then(res=>res.json())
-     .then(data => {console.log(data.results)
-
+     .then(data => {console.log(data)
+        store.setMovies(data.results)
 })
      .catch(err=> console.log(err) )
     )
