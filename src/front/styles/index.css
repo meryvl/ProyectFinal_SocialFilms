@@ -5,6 +5,8 @@ body{
   background-size:100% ;
   
 }
+
+
 footer{
   background-image: url("https://www.islabit.com/wp-content/uploads/2020/12/cintas-online.jpg");
 }
@@ -59,7 +61,20 @@ input[type = "radio"]{
   cursor: pointer;
   transition: color 200ms
 }
+.addSee{
+  border-radius: 10px;
+  font-size: small;
+  background-color: red;
+  position: relative;
+  top: -450px;
+  margin: 0;
+  opacity: 0;
+}
 
+
+.styleCards:hover .addSee{
+opacity: 1;
+}
 .styleCards{
   width: 30%;
 margin: 5px;
@@ -68,6 +83,10 @@ color: #e5e5e5;
   background-color: #0c1322;
   border-radius: 5px;
   padding: 1%;
+}
+.imgCards{
+  margin-top: 0;
+ padding: 0;
 }
 
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
@@ -80,13 +99,12 @@ color: #e5e5e5;
 
 
 .viewtrailer{
-  min-height: 700px;
+  min-height: 500px;
   background-size: cover;
   background-position:center;
   display: flex;
   align-items: flex-end;
 }
-
 
 
 .boton{

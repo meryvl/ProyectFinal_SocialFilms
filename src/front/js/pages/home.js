@@ -81,11 +81,13 @@ const startStop =()=>{
 }
 	return (
 <>
-<a href="#" onClick={startStop}>Buscar por genero</a>
+<div className="styleBar">
+<a href="#"  onClick={startStop}>Buscar por genero</a>
 {action == true ? <GenreFilms /> : ""}
-		
+<ButtonSearch  setSearchkey={setSearchkey}  searchMovies={searchMovies} />
+</div>	
 		<div >
-		<ButtonSearch  setSearchkey={setSearchkey}  searchMovies={searchMovies} />
+		
 		{/*Aqui va el banner*/ }
 		<div>
     <Banner IMAGE_PATH={IMAGE_PATH} movie={movie}  trailer={trailer} setPlaying={setPlaying} playing={playing}/>    
