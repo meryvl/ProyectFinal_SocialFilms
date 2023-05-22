@@ -1,21 +1,26 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAppContext } from "../store/appContext";
+
 const CreateCuenta =()=>{
+    const {store, actions} = useAppContext();
+const{ Users , setUsers}=store
+
 const [name, setName] = useState()
 const [apellidos , setApellidos] = useState()
 const [email , setEmail] = useState()
 const [password , setpassword] = useState()
-const [User , setUser] = useState([])
+
 
 const getUser =()=>{
     return(
-		fetch('https://3001-meryvl-proyectfinalsoci-7aa3zrb52dd.ws-eu97.gitpod.io/users')
+		fetch('https://3001-meryvl-proyectfinalsoci-4rd6749r8ta.ws-eu97.gitpod.io/users')
 		.then((res) => res.json())
 		.then((res) =>{
+            setUsers(res)
 			console.log("Perfect!!",res)
-            setUser(res)
-            console.log(User)
+            console.log(Users)
 		})
 		.catch(eror =>console.log(eror))
 	)
@@ -26,7 +31,7 @@ useEffect(()=>{
 
 const register = (name, lastname , email , password) => {
    return(
-    fetch('https://3001-meryvl-proyectfinalsoci-7aa3zrb52dd.ws-eu97.gitpod.io/new',{
+    fetch('https://3001-meryvl-proyectfinalsoci-4rd6749r8ta.ws-eu97.gitpod.io/new',{
         method:'POST',
         body:JSON.stringify({name, lastname , email , password}),
         headers:{
@@ -36,7 +41,7 @@ const register = (name, lastname , email , password) => {
     })
     .then((res) =>{
     getUser()
-    console.log(User)
+    console.log(Users)
         
     })
     .catch(eror =>console.log(eror))

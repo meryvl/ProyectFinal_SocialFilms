@@ -24,3 +24,76 @@ class User(db.Model):
         }
 
 
+class Coments(db.Model):
+    __tablename__ = 'Coments'
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(500), unique=True, nullable=False)
+    idFilm =db.Column(db.String(100), unique=True, nullable=False)
+    idUsuario = Column(Integer, ForeignKey('user.id'))
+    usuario = relationship(User)
+
+
+    def __repr__(self):
+        return f'<Comments {self.id}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "text": self.text,
+            "idFilm":self.idFilm,
+            "idUsuario": self.idUsuario,
+            "usuario":self.usuario.serialize()
+            # do not serialize the password, its a security breach
+        }
+
+
+class ListsSee(db.Model):
+    __tablename__ = 'listSee'
+    id = db.Column(db.Integer, primary_key=True)
+    idFilm =db.Column(db.String(100), unique=True, nullable=False)
+    nameFilm =db.Column(db.String(200), unique=True, nullable=False)
+    urlApi = db.Column(db.String(200), unique=True, nullable=False)
+    idUsuario = Column(Integer, ForeignKey('user.id'))
+    usuario = relationship(User)
+
+
+    def __repr__(self):
+        return f'<ListsSee {self.id}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "idFilm": self.idFilm,
+            "NameFilm":self.nameFilm,
+            "url": self.urlApi,
+            "idUsuario": self.idUsuario,
+            "usuario":self.usuario.serialize()
+            # do not serialize the password, its a security breach
+        }
+
+
+class ListsCompletados(db.Model):
+    __tablename__ = 'listCompletadas'
+    id = db.Column(db.Integer, primary_key=True)
+    idFilm =db.Column(db.String(100), unique=True, nullable=False)
+    nameFilm =db.Column(db.String(200), unique=True, nullable=False)
+    urlApi = db.Column(db.String(200), unique=True, nullable=False)
+    idUsuario = Column(Integer, ForeignKey('user.id'))
+    usuario = relationship(User)
+
+
+    def __repr__(self):
+        return f'<ListsCompletados {self.id}>'
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "idFilm": self.idFilm,
+            "NameFilm":self.nameFilm,
+            "url": self.urlApi,
+            "idUsuario": self.idUsuario,
+            "usuario":self.usuario.serialize()
+            # do not serialize the password, its a security breach
+        }
+
+

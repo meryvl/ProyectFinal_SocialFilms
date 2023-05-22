@@ -12,6 +12,7 @@ import AppContextProvider from "./store/appContext";
 import { Navbar1 } from "./component/navbar";
 import { Footer } from "./component/footer";
 import DetailsFilms from "./pages/DetailsFilms";
+import PerfilUser from "./pages/PerfilUser";
 //create your first component
 const Layout = () => {
     //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -32,6 +33,7 @@ const Layout = () => {
                         <Route element={<Login/>} path="/login" />
                         <Route element={<CreateCuenta />} path="/createcuenta" />
                         <Route path="detailsFilms/:id" element={<DetailsFilms />} />
+                        <Route element={<PerfilUser />}  path="/perfilUsuario" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>

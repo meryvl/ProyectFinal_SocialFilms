@@ -14,7 +14,11 @@ const AppContextProvider = ({ children }) => {
 	const [trailer , setTrailer] = useState(null)
 	const [movie , setMovie] = useState({title: "Loging Movies"})
 	const [playing , setPlaying] = useState(false);
- 
+	const [Users , setUsers] = useState([])
+
+
+	const [userLogeado, setUserLogeado] = useState(false)
+
 	//funcion de peticion de api
 
  const fetchMovies = async( searchKey) =>{
@@ -90,7 +94,10 @@ const  store ={
   API_KEY,
   API_URL,
   IMAGE_PATH,
-  URL_IMAGE
+  URL_IMAGE,
+  Users,
+  setUsers,
+  userLogeado, setUserLogeado
 }
 const actions={
   fetchMovies,
