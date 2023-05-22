@@ -3,11 +3,15 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 """
 import os
 from flask import Flask, request, jsonify, url_for, send_from_directory
+from flask_basicauth import BasicAuth
+from flask_jwt_extended import JWTManager
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import jwt_required, get_jwt_identity
 from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
 from api.utils import APIException, generate_sitemap
-from api.models import db
+from api.models import db , User
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
@@ -83,7 +87,27 @@ def newUser():
 
     return jsonify({"code": 200, "mensaje": "Usuario creado correctamente"})
 
+@app.route('/users', methods=['GET'])
+def getUsers():
+    try:
+        users = User.query.all()
+        toReturn = [users.serialize() for users in users]
+        return jsonify(toReturn), 200
 
+    except Exception:
+        return jsonify({"msg": "Ha ocurrido un error"}) , 500
+    
+
+@app.route('/user/<int:position>', methods=['GET'])
+def getPeopleId(position):
+    try:
+       
+        userId =  User.query.filter_by(id=position).first() 
+        return jsonify(userId.serialize()), 200
+
+    except Exception:
+        return jsonify({"msg": "Ha ocurrido un error"}) , 500
+    
 
 
 # this only runs if `$ python src/main.py` is executed
