@@ -12,6 +12,9 @@ from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
 #from models import Person
+from flask_jwt_extended import JWTManager
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
 ENV = os.getenv("FLASK_ENV")
 static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../public/')
@@ -28,6 +31,11 @@ else:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 MIGRATE = Migrate(app, db, compare_type = True)
 db.init_app(app)
+
+
+app.config["JWT_SECRET_KEY"] = "111222333" # ¡Cambia las palabras "super-secret" por otra cosa!
+jwt = JWTManager(app)
+
 
 # Allow CORS requests to this API
 CORS(app)
@@ -74,7 +82,8 @@ def newUser():
             email = body["email"],
             password = body["password"], 
             name = body["name"], 
-            lastName = body["lastName"], 
+            lastname = body["lastname"],
+             is_active = True
         )
 
     db.session.add(new_user)
@@ -103,6 +112,10 @@ def getPeopleId(position):
     except Exception:
         return jsonify({"msg": "Ha ocurrido un error"}) , 500
     
+
+
+
+
 
 
 # this only runs if `$ python src/main.py` is executed

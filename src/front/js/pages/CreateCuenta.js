@@ -15,7 +15,7 @@ const [password , setpassword] = useState()
 
 const getUser =()=>{
     return(
-		fetch('https://3001-meryvl-proyectfinalsoci-4rd6749r8ta.ws-eu97.gitpod.io/users')
+		fetch('https://3001-meryvl-proyectfinalsoci-yjm6wjttprk.ws-eu97.gitpod.io/users')
 		.then((res) => res.json())
 		.then((res) =>{
             setUsers(res)
@@ -31,9 +31,9 @@ useEffect(()=>{
 
 const register = (name, lastname , email , password) => {
    return(
-    fetch('https://3001-meryvl-proyectfinalsoci-4rd6749r8ta.ws-eu97.gitpod.io/new',{
+    fetch('https://3001-meryvl-proyectfinalsoci-yjm6wjttprk.ws-eu97.gitpod.io/new',{
         method:'POST',
-        body:JSON.stringify({name, lastname , email , password}),
+        body:JSON.stringify({name:name, lastname: lastname ,email: email , password: password}),
         headers:{
             "Content-Type": "application/json",
             

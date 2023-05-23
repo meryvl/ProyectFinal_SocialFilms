@@ -6,13 +6,14 @@ const Login =()=>{
   const navigate = useNavigate();
   const {store, actions} = useAppContext();
   const{ Users , setUsers, userLogeado, setUserLogeado}=store
+  const {log, getMyTasks }=actions
   const [email , setEmail]= useState();
   const [password , setPassword] =useState();
   
   const hanledLogin=(e , email , password)=>{
     e.preventDefault();
    Users.forEach(user => {
-    if(user.email == email && user.password == password){
+    if(user.email == email ){
       setUserLogeado(True)
       navigate("/perfilUsuario")
       setEmail("")
@@ -25,6 +26,7 @@ const Login =()=>{
      
 
   }
+
 
 return(<>
 

@@ -29,8 +29,8 @@ class Coments(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(500), unique=True, nullable=False)
     idFilm =db.Column(db.String(100), unique=True, nullable=False)
-    idUsuario = Column(Integer, ForeignKey('user.id'))
-    usuario = relationship(User)
+    idUsuario = db.Column(db.Integer, db.ForeignKey('user.id'))
+    usuario = db.relationship(User)
 
 
     def __repr__(self):
@@ -53,8 +53,8 @@ class ListsSee(db.Model):
     idFilm =db.Column(db.String(100), unique=True, nullable=False)
     nameFilm =db.Column(db.String(200), unique=True, nullable=False)
     urlApi = db.Column(db.String(200), unique=True, nullable=False)
-    idUsuario = Column(Integer, ForeignKey('user.id'))
-    usuario = relationship(User)
+    idUsuario = db.Column(db.Integer,db.ForeignKey('user.id'))
+    usuario = db.relationship(User)
 
 
     def __repr__(self):
@@ -78,8 +78,8 @@ class ListsCompletados(db.Model):
     idFilm =db.Column(db.String(100), unique=True, nullable=False)
     nameFilm =db.Column(db.String(200), unique=True, nullable=False)
     urlApi = db.Column(db.String(200), unique=True, nullable=False)
-    idUsuario = Column(Integer, ForeignKey('user.id'))
-    usuario = relationship(User)
+    idUsuario = db.Column(db.Integer,db.ForeignKey('user.id'))
+    usuario = db.relationship(User)
 
 
     def __repr__(self):

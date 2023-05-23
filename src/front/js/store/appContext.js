@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
+
 const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
@@ -7,7 +8,7 @@ const AppContextProvider = ({ children }) => {
 	const API_KEY = "85acd1db7d013b618f9633e17890c3b8"
 	const IMAGE_PATH= "https://image.tmdb.org/t/p/original"
 	const URL_IMAGE= "https://image.tmdb.org/t/p/original"
-	
+	const URL_BACK_API="https://3001-meryvl-proyectfinalsoci-yjm6wjttprk.ws-eu97.gitpod.io"
 
 	const [movies , setMovies]= useState([])
 	const [searchKey , setSearchkey]= useState("")
@@ -81,6 +82,59 @@ const selectMovie = async(movie)=>{
 	window.scrollTo(0,0)
 }
  
+
+
+const log = async (email, password) => {
+	const resp = await fetch(`https://3001-meryvl-proyectfinalsoci-yjm6wjttprk.ws-eu97.gitpod.io/login`, { 
+		 method: "POST",
+		 headers: { "Content-Type": "application/json" },
+		 body: JSON.stringify({ email: email, password: password }) 
+	})
+  
+	if(!resp.ok) throw Error("There was a problem in the login request")
+  
+	if(resp.status === 401){
+		 throw("Invalid credentials")
+	}
+	else if(resp.status === 400){
+		 throw ("Invalid email or password format")
+	}
+	const data = await resp.json()
+	// save your token in the localStorage
+   //also you should set your user into the store using the setStore function
+	localStorage.setItem("jwt-token", data.token);
+  
+	return data
+  }
+
+  const getMyTasks = async (email, password) => {
+	// retrieve token form localStorage
+	const token = localStorage.getItem('jwt-token');
+  
+	const resp = await fetch(`https://3001-meryvl-authenticationsy-xqz8br0syug.ws-eu97.gitpod.io/protected`, {
+	   method: 'GET',
+	   headers: { 
+		 "Content-Type": "application/json",
+		 "Authorization": 'Bearer '+token // ⬅⬅⬅ authorization token
+	   } 
+	})
+	if(!resp.ok){
+	  throw Error("There was a problem in the login request")
+	} 
+  
+	else if(resp.status === 403){
+		throw Error("Missing or invalid token");
+	}
+   
+  
+	const data = await resp.json();
+	console.log("This is the data you requested", data);
+	return data
+  
+  }
+
+
+
 const  store ={
   movie,
   movies,
@@ -103,7 +157,10 @@ const actions={
   fetchMovies,
   searchMovies,
   fetchMovie,
-  selectMovie
+  selectMovie,
+  log,
+  getMyTasks
+
 }
 
   return (
