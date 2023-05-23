@@ -9,7 +9,7 @@ const Login =()=>{
   const{ Users , setUsers, userLogeado, setUserLogeado}=store
   const [email , setEmail]= useState();
   const [password , setPassword] =useState();
-  
+  const [res , setRes] =useState("")
   
 useEffect(()=>{
     getUser(setUsers)
@@ -22,15 +22,23 @@ const log = async (email, password) => {
        body: JSON.stringify({ email: email, password: password }) 
   })
 
-  if(!resp.ok) throw Error("There was a problem in the login request")
+  if(!resp.ok){
+    setRes("There was a problem in the login request")
+    throw Error("There was a problem in the login request")
+
+  } 
 
   if(resp.status === 401){
+    setRes("Invalid credentials")
        throw("Invalid credentials")
+       
   }
   else if(resp.status === 400){
+    setRes("Invalid credentials")
        throw ("Invalid email or password format")
+       
   }
-  
+
   setUserLogeado("true")
   navigate("/perfilUsuario")
   setEmail("")
@@ -72,6 +80,7 @@ return(<>
           <label>Password</label>
           <input type="password" placeholder="Enter Password" id="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
         </div>
+        <p className="m-3">{res}</p>
         <button className="submitForm" onClick={(e)=>{hanledLogin(e, email, password)}}>Log In</button>
        <Link to="/createcuenta" className="create">Create cuenta</Link>
       
