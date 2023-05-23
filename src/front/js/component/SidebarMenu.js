@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonSearch from "../component/ButtonSearch";
+
 
 const SidebarMenu =()=>{
 return (
@@ -7,7 +7,7 @@ return (
     <div class="menu-content">
       <ul class="menu-items">
         <div class="menu-title">Menu de Busqueda</div>
-        <ButtonSearch />
+        
         <li class="item">
           <a href="#">Peliculas</a>
         </li>

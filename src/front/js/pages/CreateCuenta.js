@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../store/appContext";
-
+import { getUser } from "../store/Fetch";
 const CreateCuenta =()=>{
     const {store, actions} = useAppContext();
-const{ Users , setUsers}=store
+const{ Users , setUsers}=store 
 
 const [name, setName] = useState()
 const [apellidos , setApellidos] = useState()
@@ -13,24 +13,11 @@ const [email , setEmail] = useState()
 const [password , setpassword] = useState()
 
 
-const getUser =()=>{
-    return(
-		fetch('https://3001-meryvl-proyectfinalsoci-yjm6wjttprk.ws-eu97.gitpod.io/users')
-		.then((res) => res.json())
-		.then((res) =>{
-            setUsers(res)
-			console.log("Perfect!!",res)
-            console.log(Users)
-           
-           
-		})
-		.catch(eror =>console.log(eror))
-	)
-}
+
 useEffect(()=>{
-    getUser()
+    getUser(setUsers)
 },[])
-console.log(Users)
+
 const register = (name, lastname , email , password) => {
    return(
     fetch('https://3001-meryvl-proyectfinalsoci-yjm6wjttprk.ws-eu97.gitpod.io/new',{
@@ -43,7 +30,7 @@ const register = (name, lastname , email , password) => {
     })
     .then((res) =>{
     getUser()
-    console.log(Users)
+    
         
     })
     .catch(eror =>console.log(eror))
