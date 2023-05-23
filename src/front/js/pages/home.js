@@ -4,7 +4,7 @@ import axios from "axios";
 
 import ButtonSearch from "../component/ButtonSearch";
 import { useAppContext } from "../store/appContext";
-import Starts from "../component/Stars";
+
 import CardsFilms from "../component/CardsFilms";
 import Banner from "../component/Banner";
 import GenreFilms from "../component/GenreFilms";
@@ -99,7 +99,7 @@ const startStop =()=>{
 					{movies.map((movie)=>{
 						return ( <div key={movie.id} className="col-md-2 mb-3 styleCards">
               <CardsFilms  movie={movie}  URL_IMAGE={ URL_IMAGE}  selectMovie={selectMovie}/>
-              <Starts />
+              
 						</div>)
 
 					})}

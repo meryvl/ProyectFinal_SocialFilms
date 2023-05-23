@@ -21,6 +21,8 @@ const getUser =()=>{
             setUsers(res)
 			console.log("Perfect!!",res)
             console.log(Users)
+           
+           
 		})
 		.catch(eror =>console.log(eror))
 	)
@@ -28,7 +30,7 @@ const getUser =()=>{
 useEffect(()=>{
     getUser()
 },[])
-
+console.log(Users)
 const register = (name, lastname , email , password) => {
    return(
     fetch('https://3001-meryvl-proyectfinalsoci-yjm6wjttprk.ws-eu97.gitpod.io/new',{

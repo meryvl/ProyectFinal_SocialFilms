@@ -6,7 +6,6 @@ const Login =()=>{
   const navigate = useNavigate();
   const {store, actions} = useAppContext();
   const{ Users , setUsers, userLogeado, setUserLogeado}=store
-  const {log, getMyTasks }=actions
   const [email , setEmail]= useState();
   const [password , setPassword] =useState();
   

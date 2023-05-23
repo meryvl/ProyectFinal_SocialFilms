@@ -88,7 +88,14 @@ color: #e5e5e5;
   margin-top: 0;
  padding: 0;
 }
-
+.TextCard{
+  margin-left:10% ;
+  width: 80%;
+}
+.butonComent{
+  text-align:center; 
+  margin-top: 5px ;
+}
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
   * {
     margin: 0;

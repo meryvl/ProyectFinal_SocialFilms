@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { FaStar} from "react-icons/fa"
 
-const  Starts = () => {
+const  Stars = () => {
   
   const [valueStar , setValueStar]= useState(null);
   const [hover , setHover] = useState(null);
@@ -30,4 +30,4 @@ Calificacion :
  
 };
 
-export default Starts;
+export default Stars;
