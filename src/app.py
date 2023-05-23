@@ -113,8 +113,18 @@ def getPeopleId(position):
         return jsonify({"msg": "Ha ocurrido un error"}) , 500
     
 
-
-
+@app.route("/login", methods=["POST"])
+def create_token():
+    email = request.json.get("email", None)
+    password = request.json.get("password", None)
+    # Consulta la base de datos por el nombre de usuario y la contraseña
+    user = User.query.filter_by(email=email, password=password).first()
+    if user is None:
+        return jsonify({"msg": "Bad username or password"}), 401
+    
+    # crea un nuevo token con el id de usuario dentro
+    access_token = create_access_token(identity=user.id)
+    return jsonify({ "token": access_token, "user_id": user.id })
 
 
 

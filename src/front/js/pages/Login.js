@@ -15,28 +15,43 @@ useEffect(()=>{
     getUser(setUsers)
 },[])
 
+const log = async (email, password) => {
+  const resp = await fetch(`https://3001-meryvl-proyectfinalsoci-yjm6wjttprk.ws-eu97.gitpod.io/login`, { 
+       method: "POST",
+       headers: { "Content-Type": "application/json" },
+       body: JSON.stringify({ email: email, password: password }) 
+  })
 
+  if(!resp.ok) throw Error("There was a problem in the login request")
+
+  if(resp.status === 401){
+       throw("Invalid credentials")
+  }
+  else if(resp.status === 400){
+       throw ("Invalid email or password format")
+  }
+  
+  setUserLogeado("true")
+  navigate("/perfilUsuario")
+  setEmail("")
+  setPassword("")
+  const data = await resp.json()
+  // save your token in the localStorage
+ //also you should set your user into the store using the setStore function
+  localStorage.setItem("jwt-token", data.token);
+
+  return data
+}
   const hanledLogin=(e , email , password)=>{
     e.preventDefault();
-   Users.map((user)=>{
-
-    if(user.email == email ){
-      setUserLogeado("true")
-      navigate("/perfilUsuario")
-      setEmail("")
-      setPassword("")
+    log(email,password)
+      
     }
-    else{
-      console.log("No existe ese usuario")
-    }
-   
-
-   })
+    
     
      
 
-  }
-
+  
 
 return(<>
 
