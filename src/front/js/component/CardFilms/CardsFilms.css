@@ -1,0 +1,33 @@
+.addSee{
+    border-radius: 10px;
+    font-size: small;
+    background-color: red;
+   opacity: 0;
+  }
+  
+  
+  .styleCards:hover .addSee{
+  opacity: 1;
+  }
+  .styleCards{
+    width: 30%;
+  margin: 5px;
+  color: #e5e5e5;
+    border: solid 1px rgb(34, 34, 53);
+    background-color: #0c1322;
+    border-radius: 5px;
+    padding: 1%;
+  }
+  .imgCards{
+   
+    margin-top: 0;
+   padding: 0;
+  }
+  .TextCard{
+    margin-left:10% ;
+    width: 80%;
+  }
+  .butonComent{
+    text-align:center; 
+    margin-top: 5px ;
+  }

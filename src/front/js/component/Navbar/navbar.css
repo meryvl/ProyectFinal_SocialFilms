@@ -36,7 +36,7 @@ nav{
     display: none;
     cursor: pointer;
 }
-@media(max-width:750px) {
+@media(max-width:800px) {
     .btn-iconlist{
         display: initial;
     }
@@ -51,13 +51,14 @@ nav{
         right: 0;
         background-color:  rgba(6, 6, 14, 0.932);;
         width: 100%;
-        
+       justify-content: center;
+        opacity: 0;
         
     }
     
-    .logoWeb{width: 60%;}
+    .logoWeb{width: 100%;}
 /*he probado hacerlo con css que cuando se apriete el botton se vuelva visible el menu y nada */
-    #btn-iconlist:checked  .navMenu{
-        visibility: visible;
+    .btn-iconlist:checked  .navMenu{
+        opacity: 1;
     }
 }

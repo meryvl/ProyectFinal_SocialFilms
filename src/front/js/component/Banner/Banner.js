@@ -1,5 +1,6 @@
 import React from "react";
 import YouTube from 'react-youtube';
+import "../../component/Banner/Banner.css";
 const Banner= ({IMAGE_PATH, movie , trailer, setPlaying , playing})=>{
 return(
 	

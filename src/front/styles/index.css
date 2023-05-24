@@ -48,41 +48,7 @@ input[type = "radio"]{
   cursor: pointer;
   transition: color 200ms
 }
-.addSee{
-  border-radius: 10px;
-  font-size: small;
-  background-color: red;
-  position: relative;
-  top: -450px;
-  margin: 0;
-  opacity: 0;
-}
 
-
-.styleCards:hover .addSee{
-opacity: 1;
-}
-.styleCards{
-  width: 30%;
-margin: 5px;
-color: #e5e5e5;
-  border: solid 1px rgb(34, 34, 53);
-  background-color: #0c1322;
-  border-radius: 5px;
-  padding: 1%;
-}
-.imgCards{
-  margin-top: 0;
- padding: 0;
-}
-.TextCard{
-  margin-left:10% ;
-  width: 80%;
-}
-.butonComent{
-  text-align:center; 
-  margin-top: 5px ;
-}
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
   * {
     margin: 0;
@@ -92,28 +58,6 @@ color: #e5e5e5;
   
 
 
-.viewtrailer{
-  min-height: 500px;
-  background-size: cover;
-  background-position:center;
-  display: flex;
-  align-items: flex-end;
-}
-
-
-.boton{
-  background-color: #0F1014;
-  color: white;
-  outline: none;
-  border: 1px solid white;
-  padding: 10px 15px;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-.reproductor{
-  width: 100%;
-  height: 600px;
-}
 
 
 /***************Form Login******************************/

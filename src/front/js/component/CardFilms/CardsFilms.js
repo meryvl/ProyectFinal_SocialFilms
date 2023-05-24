@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Stars from "./Stars";
+import Stars from "../Stars";
+import "../../component/CardFilms/CardsFilms.css";
 const CardsFilms =({movie,  URL_IMAGE , selectMovie } )=>{
 
 const [see , setSee]=useState([])

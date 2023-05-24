@@ -5,8 +5,8 @@ import axios from "axios";
 import ButtonSearch from "../component/ButtonSearch";
 import { useAppContext } from "../store/appContext";
 
-import CardsFilms from "../component/CardsFilms";
-import Banner from "../component/Banner";
+import CardsFilms from "../component/CardFilms/CardsFilms";
+import Banner from "../component/Banner/Banner";
 import GenreFilms from "../component/GenreFilms";
 
 export const Home = () => {
