@@ -16,7 +16,7 @@ useEffect(()=>{
 },[])
 
 const log = async (email, password) => {
-  const resp = await fetch(`https://3001-meryvl-proyectfinalsoci-yjm6wjttprk.ws-eu97.gitpod.io/login`, { 
+  const resp = await fetch(`https://3001-meryvl-proyectfinalsoci-tq751cqfvcf.ws-eu97.gitpod.io/login`, { 
        method: "POST",
        headers: { "Content-Type": "application/json" },
        body: JSON.stringify({ email: email, password: password }) 

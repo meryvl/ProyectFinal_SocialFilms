@@ -10,27 +10,14 @@ body{
 footer{
   background-image: url("https://www.islabit.com/wp-content/uploads/2020/12/cintas-online.jpg");
 }
-.imgNavbar{
 
-    width: 70px;
-    border-radius: 30%;
-    border: solid 1px red;
-}
   .letterIcon {
     color: #fff;
    font-family: "Poppins", sans-serif;;
    font-size:  30px;   
   
   }
-  a{
- text-decoration: none;
- color: white
-  }
-  nav{
-    border-bottom: solid 1px red;
-    background-color: rgba(6, 6, 14, 0.932);
-  
-  }
+
   #imgSeach{
     border-radius: 10px;
     width: 30px;

@@ -13,7 +13,7 @@ return(
     <>
    <div>
     
-	<img className="imgCards" src={`${URL_IMAGE + movie.poster_path}`} alt="" height={450} width="100%" onClick={()=> selectMovie(movie)}/>
+	<img className="imgCards img-fluid" src={`${URL_IMAGE + movie.poster_path}`} alt="" height={450} width="100%" onClick={()=> selectMovie(movie)}/>
 	<button className="addSee" onClick={()=>{hanledSee(movie.id)}}>Add see</button>
     <div className="TextCard row">
     <h4 className="text-center">{movie.title}</h4>

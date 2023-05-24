@@ -20,7 +20,7 @@ useEffect(()=>{
 
 const register = (name, lastname , email , password) => {
    return(
-    fetch('https://3001-meryvl-proyectfinalsoci-yjm6wjttprk.ws-eu97.gitpod.io/new',{
+    fetch('https://3001-meryvl-proyectfinalsoci-tq751cqfvcf.ws-eu97.gitpod.io/new',{
         method:'POST',
         body:JSON.stringify({name:name, lastname: lastname ,email: email , password: password}),
         headers:{

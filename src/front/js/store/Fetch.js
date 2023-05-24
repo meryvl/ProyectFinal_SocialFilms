@@ -1,6 +1,6 @@
 export const getUser =(setState)=>{
     return(
-		fetch('https://3001-meryvl-proyectfinalsoci-yjm6wjttprk.ws-eu97.gitpod.io/users', {
+		fetch('https://3001-meryvl-proyectfinalsoci-tq751cqfvcf.ws-eu97.gitpod.io/users', {
             method: "GET",
             headers: {
               "Content-Type": "application/json"

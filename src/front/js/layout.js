@@ -9,7 +9,7 @@ import { Single } from "./pages/single";
 import CreateCuenta from "./pages/CreateCuenta";
 import AppContextProvider from "./store/appContext";
 
-import { Navbar1 } from "./component/navbar";
+import { Navbar1 } from "./component/Navbar/navbar";
 import { Footer } from "./component/footer";
 import DetailsFilms from "./pages/DetailsFilms";
 import PerfilUser from "./pages/PerfilUser";
