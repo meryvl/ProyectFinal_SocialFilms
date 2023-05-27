@@ -96,7 +96,7 @@ input[type = "radio"]{
 
 .circle:first-child {
   left: -28%;
-  top: -35%;
+  top: -10%;
   background: linear-gradient(#ff0060, #c302b5);
 }
 
@@ -107,10 +107,10 @@ input[type = "radio"]{
 }
 
 .inLoginForm .form {
-  top: 30%;
+  top: 45%;
   left: 50%;
   width: 150rem;
-  height: 30rem;
+  height: 25rem;
   max-width: 320px;
   position: absolute;
   padding: 50px 35px;

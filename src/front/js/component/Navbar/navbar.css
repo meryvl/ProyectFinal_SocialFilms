@@ -14,7 +14,7 @@ a{
    display: none;
 }
 #btn-iconlist{
-    padding: 5px;
+    padding: 6px;
     background: white;
 }
 
@@ -32,9 +32,9 @@ nav{
     text-decoration: none;
 }
 .navMenu{
+    width: 100%;
     display: flex;
-   
-    text-align: center;
+
 }
 .linkText{ color: white ; }
 .linkText-p {
@@ -67,7 +67,10 @@ nav{
         
     }
     
-    .logoWeb{width: 100%;}
+    .logoWeb{
+        margin-left: 0;
+        padding-left: 0;
+        width: 100%;}
 /*he probado hacerlo con css que cuando se apriete el botton se vuelva visible el menu y nada */
    #check:checked ~ .navMenu  {
        left: 0;
