@@ -28,9 +28,9 @@ return(<>
 {series.map((index)=>{
 return(
     <>
-    <div className="col-md-4 mb-3 CardSeries ">
-    <img className="imgCardSeries img-fluid" src={`${URL_IMAGE + index.backdrop_path}`} alt="" height={450} width="100%"/>
-    <h2>{index.name}</h2>
+    <div className="col-4 mb-2 CardSeries ">
+    <img className="imgCardSeries img-fluid" src={`${URL_IMAGE + index.poster_path}`} alt="" height={450} width="100%"/>
+    <h3 className="NameTV">{index.name}</h3>
     </div>
   
     </>

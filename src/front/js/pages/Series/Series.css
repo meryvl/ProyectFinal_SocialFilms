@@ -1,0 +1,22 @@
+*{
+    color: white;
+}
+.CardSeries{
+    border: solid 1px rgb(34, 34, 53);
+    background-color: #0c1322;
+    border-radius: 5px;
+    padding: 1%;
+  
+}
+.imgCardSeries{
+height: 360px;
+margin-top: 0;
+ padding: 0;
+}
+
+.NameTV{
+    font-size: 20px;
+    margin-top: 3px;
+    text-align: center;
+    color:white
+}
