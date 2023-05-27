@@ -75,6 +75,11 @@ input[type = "radio"]{
 
 }
 
+.butonGoogle{
+  margin-left: 65px;
+
+}
+
 .inFormBackground {
   margin: 0rem 1rem;
 }

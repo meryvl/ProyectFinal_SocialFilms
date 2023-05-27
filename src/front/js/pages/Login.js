@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useAppContext } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../store/Fetch";
+import GoogleLogin from 'react-google-login';
+
 const Login =()=>{
   const navigate = useNavigate();
   const {store, actions} = useAppContext();
@@ -10,7 +12,9 @@ const Login =()=>{
   const [email , setEmail]= useState();
   const [password , setPassword] =useState();
   const [res , setRes] =useState("")
+
   
+
 useEffect(()=>{
     getUser(setUsers)
 },[])
@@ -57,7 +61,10 @@ const log = async (email, password) => {
     }
     
     
-     
+    const responseGoogle = (response) => {
+      console.log(response);
+    }
+    
 
   
 
@@ -65,10 +72,21 @@ return(<>
 
 <div className="bodyPage">
 <div className="inFormBackground">
+<GoogleLogin className="butonGoogle"
+    clientId="240801294980-0029tcdknb468ppl1rcmtuhspd1tfnom.apps.googleusercontent.com"
+    buttonText="Login with Goole"
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />,
+<div className="inLoginForm">
+  
     <div className="circle"></div>
     <div className="circle"></div>
-    <div className="inLoginForm">
+   
       <form className="form">
+
+     
         <div className="title">
           <h3>Login Here</h3>
         </div>
