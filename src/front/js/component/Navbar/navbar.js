@@ -25,7 +25,7 @@ export const Navbar1 = () => {
 			Peliculas
 			</Nav.Link>
 			
-			<Nav.Link className="linkText" href="/login">
+			<Nav.Link className="linkText" href="/Series">
 			Series
 			</Nav.Link>
 			<Nav.Link className="linkText" href="/login">

@@ -1,6 +1,6 @@
 export const getUser =(setState)=>{
     return(
-		fetch('https://3001-meryvl-proyectfinalsoci-tq751cqfvcf.ws-eu97.gitpod.io/users', {
+		fetch('https://3001-meryvl-proyectfinalsoci-a2agudmlyox.ws-eu98.gitpod.io/users', {
             method: "GET",
             headers: {
               "Content-Type": "application/json"
@@ -20,7 +20,7 @@ export const getUser =(setState)=>{
 
 export const register = (name, lastname , email , password) => {
         return(
-         fetch('https://3001-meryvl-proyectfinalsoci-tq751cqfvcf.ws-eu97.gitpod.io/new',{
+         fetch('https://3001-meryvl-proyectfinalsoci-a2agudmlyox.ws-eu98.gitpod.io/new',{
              method:'POST',
              body:JSON.stringify({name:name, lastname: lastname ,email: email , password: password}),
              headers:{
