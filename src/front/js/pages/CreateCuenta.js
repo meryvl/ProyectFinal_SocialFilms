@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../store/appContext";
-import { getUser } from "../store/Fetch";
+import { getUser, register } from "../store/Fetch";
 const CreateCuenta =()=>{
     const {store, actions} = useAppContext();
 const{ Users , setUsers}=store 
@@ -17,26 +17,6 @@ const [password , setpassword] = useState()
 useEffect(()=>{
     getUser(setUsers)
 },[])
-
-const register = (name, lastname , email , password) => {
-   return(
-    fetch('https://3001-meryvl-proyectfinalsoci-tq751cqfvcf.ws-eu97.gitpod.io/new',{
-        method:'POST',
-        body:JSON.stringify({name:name, lastname: lastname ,email: email , password: password}),
-        headers:{
-            "Content-Type": "application/json",
-            
-        }
-    })
-    .then((res) =>{
-    getUser()
-    
-        
-    })
-    .catch(eror =>console.log(eror))
-)}
-
-  ;
 
 
 const hanledCreateNewUser =(e,name, lastname , email , password)=>{

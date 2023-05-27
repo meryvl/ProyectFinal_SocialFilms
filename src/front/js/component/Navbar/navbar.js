@@ -14,8 +14,10 @@ export const Navbar1 = () => {
 		  <img className="imgNavbar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY0C12MLFdnR7hLSdHBdEE1liprPpkKiPHNA&usqp=CAU"/>
 			<span className="navbar-brand mb-0 m-3 h1 letterIcon">Social Films</span>
 			</Navbar.Brand> 
-			
-			<button className="btn-iconlist"><i className="fa-solid fa-rectangle-list m-3" id="btn-iconlist"></i></button>
+			<input type="checkbox" id="check"/>
+			<label for="check" className="checkbtn">
+			<i className="fa-solid fa-rectangle-list m-3" id="btn-iconlist"></i>
+			</label>
 			<Navbar.Brand  className="navMenu " id="navMenu">
 			
 			
@@ -33,7 +35,8 @@ export const Navbar1 = () => {
         </Navbar.Brand >
 
 			<Navbar.Brand  className="justify-content-end">
-			<Nav.Link className="logoInitSesion" href="/login">
+			<Nav.Link className="letterSesion" href="/login">
+			<img className="iconSesion"/>
 			Iniciar Sesion
 			</Nav.Link>
         </Navbar.Brand >

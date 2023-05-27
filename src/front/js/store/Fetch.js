@@ -17,3 +17,23 @@ export const getUser =(setState)=>{
           })
           .catch(error => {console.log(error);}));  //Error handling
       };
+
+export const register = (name, lastname , email , password) => {
+        return(
+         fetch('https://3001-meryvl-proyectfinalsoci-tq751cqfvcf.ws-eu97.gitpod.io/new',{
+             method:'POST',
+             body:JSON.stringify({name:name, lastname: lastname ,email: email , password: password}),
+             headers:{
+                 "Content-Type": "application/json",
+                 
+             }
+         })
+         .then((res) =>{
+         getUser()
+         
+             
+         })
+         .catch(eror =>console.log(eror))
+     )}
+     
+       ;

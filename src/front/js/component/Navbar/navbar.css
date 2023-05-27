@@ -9,6 +9,15 @@ a{
     text-decoration: none;
     color: white
      }
+     
+#check{
+   display: none;
+}
+#btn-iconlist{
+    padding: 5px;
+    background: white;
+}
+
 nav{
     border-bottom: solid 1px red;
     background-color: rgba(6, 6, 14, 0.932);
@@ -16,7 +25,7 @@ nav{
      }
     
 .logoWeb{width: 30%;}
-.logoInitSesion{
+.letterSesion{
     
     font-size: 12px;
     text-align: end;
@@ -24,20 +33,21 @@ nav{
 }
 .navMenu{
     display: flex;
-    width: 70%;
+   
     text-align: center;
 }
 .linkText{ color: white ; }
 .linkText-p {
     margin-top: 10px;
 }
-.btn-iconlist{
+.checkbtn{
     border-radius: 10%;
     display: none;
     cursor: pointer;
+ 
 }
-@media(max-width:800px) {
-    .btn-iconlist{
+@media(max-width:952px) {
+    .checkbtn{
         display: initial;
     }
     nav{
@@ -52,13 +62,15 @@ nav{
         background-color:  rgba(6, 6, 14, 0.932);;
         width: 100%;
        justify-content: center;
-        opacity: 0;
+        left: -100%;
+        transition: all .5s;
         
     }
     
     .logoWeb{width: 100%;}
 /*he probado hacerlo con css que cuando se apriete el botton se vuelva visible el menu y nada */
-    .btn-iconlist:checked  .navMenu{
-        opacity: 1;
+   #check:checked ~ .navMenu  {
+       left: 0;
     }
+   
 }
