@@ -10,6 +10,7 @@ const AppContextProvider = ({ children }) => {
 	const URL_IMAGE= "https://image.tmdb.org/t/p/original"
 	const URL_BACK_API="https://3001-meryvl-proyectfinalsoci-yjm6wjttprk.ws-eu97.gitpod.io"
 
+	const [coments ,setComents] =useState([])
 	const [movies , setMovies]= useState([])
 	const [searchKey , setSearchkey]= useState("")
 	const [trailer , setTrailer] = useState(null)
@@ -151,7 +152,8 @@ const  store ={
   URL_IMAGE,
   Users,
   setUsers,
-  userLogeado, setUserLogeado
+  userLogeado, setUserLogeado,
+  coments ,setComents
 }
 const actions={
   fetchMovies,

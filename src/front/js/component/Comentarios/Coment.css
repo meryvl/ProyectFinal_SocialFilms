@@ -1,0 +1,16 @@
+.CardComent{
+   
+    background-color: rgb(6, 6, 65);
+    border-radius: 5px;
+    padding: 10px;
+}
+textarea{
+    font-size: 13px;
+    color: black;
+    display: block;
+}
+button{
+    margin-top: 10px;
+    color: black;
+    font-size: 14px;
+}

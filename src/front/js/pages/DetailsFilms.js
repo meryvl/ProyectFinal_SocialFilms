@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { useAppContext } from "../store/appContext";
+import Coment from "../component/Comentarios/Coment";
+import { AddSee } from "../component/AddSee/AddSee";
 
 const DetailsFilms=()=>{
     const {store, actions} = useAppContext();
@@ -26,13 +28,16 @@ useEffect(()=>{
     console.log("PARAMS:", params)
     return(
         <>
-        <div className="CardDetails m-5">
+        <div className="CardDetails m-5 ">
+       
         <img className="imgDetails" src={`${URL_IMAGE + detailMovie.poster_path}`} alt="" height={450} width={400} />
+        
+        <div className="">
         <h4 className="text-center">{detailMovie.title}</h4><p>{}</p>
         <p>{detailMovie.original_language}</p>
+        <p>{detailMovie.adult == false ? " " : detailMovie.adult }</p>
         <p>{detailMovie.overview}</p>
        
-        
         <div className="row">
         {genres.map((res)=>{
             return(<>
@@ -41,6 +46,8 @@ useEffect(()=>{
             )
         })}
         </div>
+        </div>
+        <Coment />
         </div>
         </>
     )

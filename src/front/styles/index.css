@@ -23,7 +23,9 @@ footer{
     width: 30px;
   }
   input{
+    
    border-radius: 5px;
+   color: black;
   }
 
   .search{
@@ -270,4 +272,18 @@ background-size: 800%;
   color: white;
   margin: 16px 0;
   font-size: 16px;
+}
+
+
+.addSee{
+  border-radius: 10px;
+  font-size: small;
+  background-color: red;
+ opacity: 1;
+}
+
+.CardDetails{
+ background-color: #0a1a3d;
+ padding: 5px;
+ border-radius: 10px;
 }
