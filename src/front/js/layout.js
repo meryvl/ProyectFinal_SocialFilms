@@ -2,10 +2,9 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/xnoUtils/scrollToTop";
 import { BackendURL } from "./component/xnoUtils/ackendURL";
-
+import { Films } from "./pages/films";
 import { Home } from "./pages/home";
 import Login from "./pages/Login";
-import { Single } from "./pages/single";
 import CreateCuenta from "./pages/CreateCuenta";
 import AppContextProvider from "./store/appContext";
 
@@ -31,12 +30,13 @@ const Layout = () => {
                     <Routes>
 
                         <Route element={<Home />} path="/" />
+                        <Route element={<Films />} path="/Films" />
                         <Route element={<Login/>} path="/login" />
                         <Route element={<CreateCuenta />} path="/createcuenta" />
                         <Route element={<Series />} path="/Series" />
-                        <Route path="detailsFilms/:id" element={<DetailsFilms />} />
+                        <Route path="/View/:id" element={<DetailsFilms />} />
                         <Route element={<PerfilUser />}  path="/perfilUsuario" />
-                        <Route element={<Single />} path="/single/:theid" />
+                       
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

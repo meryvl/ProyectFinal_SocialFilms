@@ -22,7 +22,7 @@ export const Navbar1 = () => {
 			<Navbar.Brand  className="navMenu " id="navMenu">
 			
 			
-			<Nav.Link className="linkText" href="/">
+			<Nav.Link className="linkText" href="/Films">
 			Peliculas
 			</Nav.Link>
 			

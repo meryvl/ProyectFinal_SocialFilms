@@ -9,7 +9,7 @@ const hanledSee=(id)=>{
 setSee(id)
 console.log(see)
 }
-const urlDetails =`detailsFilms/${movie.id}`;
+
 return(
     <>
    <div>
@@ -23,7 +23,7 @@ return(
     <Stars />
     </div>
     <div className="butonComent">
-    <Link to={urlDetails} className="btn btn-primary  ">Details and Coment</Link>
+    <Link to={`/View/${movie.id}`} className="btn btn-primary  ">Details and Coment</Link>
     </div>
     </div>
     </>
