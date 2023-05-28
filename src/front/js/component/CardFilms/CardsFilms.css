@@ -4,7 +4,7 @@
     background-color: red;
    opacity: 0;
   }
-  
+  .title{font-size: 20px;}
   
   .styleCards:hover .addSee{
   opacity: 1;
@@ -30,4 +30,19 @@
   .butonComent{
     text-align:center; 
     margin-top: 5px ;
+  }
+  @media(max-width:952px) {
+
+    .TextCard{
+      font-size: 12px;
+    }
+    .title{
+      font-size: 13px;
+    }
+    .fecha{
+      font-size: 8px;
+    }
+    .butonComent{
+    font-size: 10px;
+    }
   }

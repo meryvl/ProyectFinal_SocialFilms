@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { FaStar} from "react-icons/fa"
+import { FaStar } from 'react-icons/fa'
 
 const  Stars = () => {
   
@@ -14,7 +14,7 @@ Calificacion :
         return ( 
         <label>
         <input type="radio" name="valueStar" value={starValue} onClick={()=> setValueStar(starValue)}/>
-        <FaStar className="star" size={15} color={starValue <=( hover || valueStar) ? "D6234A": "#616A6B "}
+        <FaStar className="star" size={13} color={starValue <= ( hover || valueStar) ? "D6234A": "#616A6B"}
         onMouseEnter={()=> setHover(starValue)}
         onMouseLeave={()=> setHover(null)}
         />
