@@ -52,6 +52,10 @@ nav{
 
 }
 .linkText{ color: white ; }
+.linkText:hover{
+    background-color: red;
+    border-radius: 10%;
+}
 .linkText-p {
     margin-top: 10px;
 }

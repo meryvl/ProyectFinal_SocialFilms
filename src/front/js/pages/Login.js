@@ -4,7 +4,7 @@ import { useAppContext } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../store/Fetch";
 import GoogleLogin from 'react-google-login';
-
+import { Backend_URL } from "../store/Fetch";
 const Login =()=>{
   const navigate = useNavigate();
   const {store, actions} = useAppContext();
@@ -20,7 +20,7 @@ useEffect(()=>{
 },[])
 
 const log = async (email, password) => {
-  const resp = await fetch(`https://3001-meryvl-proyectfinalsoci-tq751cqfvcf.ws-eu97.gitpod.io/login`, { 
+  const resp = await fetch(Backend_URL+`/login`, { 
        method: "POST",
        headers: { "Content-Type": "application/json" },
        body: JSON.stringify({ email: email, password: password }) 
