@@ -8,7 +8,7 @@ const AppContextProvider = ({ children }) => {
 	const API_KEY = "85acd1db7d013b618f9633e17890c3b8"
 	const IMAGE_PATH= "https://image.tmdb.org/t/p/original"
 	const URL_IMAGE= "https://image.tmdb.org/t/p/original"
-	const URL_BACK_API="https://3001-meryvl-proyectfinalsoci-yjm6wjttprk.ws-eu97.gitpod.io"
+	const api_KEY ='?api_key=85acd1db7d013b618f9633e17890c3b8'
 
 	const [coments ,setComents] =useState([])
 	const [movies , setMovies]= useState([])
@@ -153,7 +153,8 @@ const  store ={
   Users,
   setUsers,
   userLogeado, setUserLogeado,
-  coments ,setComents
+  coments ,setComents,
+  api_KEY
 }
 const actions={
   fetchMovies,

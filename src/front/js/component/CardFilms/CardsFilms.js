@@ -8,7 +8,7 @@ const CardsFilms =({movie,  URL_IMAGE , selectMovie } )=>{
 
 return(
     <>
-   <div>
+   <div >
     
 	<img className="imgCards img-fluid" src={`${URL_IMAGE + movie.poster_path}`} alt="" height={450} width="100%" onClick={()=> selectMovie(movie)}/>
 	<AddSee id={movie.id}/>

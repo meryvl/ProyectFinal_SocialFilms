@@ -9,23 +9,30 @@
   .styleCards:hover .addSee{
   opacity: 1;
   }
+  .styleCards:hover{
+    background-color: #1f073f;
+    border: solid 3px rgb(34, 34, 53) ;
+   
+  }
   .styleCards{
-    width: 30%;
+  width: 20%;
   margin: 5px;
   color: #e5e5e5;
-    border: solid 1px rgb(34, 34, 53);
-    background-color: #0c1322;
-    border-radius: 5px;
-    padding: 1%;
+  border: solid 1px rgb(34, 34, 53);
+  background-color: #0c1322;
+  border-radius: 5px;
+  padding: 1%;
   }
+
   .imgCards{
-   
     margin-top: 0;
    padding: 0;
+   cursor: pointer;
   }
   .TextCard{
     margin-left:10% ;
     width: 80%;
+   
   }
   .butonComent{
     text-align:center; 
@@ -34,10 +41,10 @@
   @media(max-width:952px) {
 
     .TextCard{
-      font-size: 12px;
+      font-size: 10px;
     }
     .title{
-      font-size: 13px;
+      font-size: 12px;
     }
     .fecha{
       font-size: 8px;
