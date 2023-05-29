@@ -81,12 +81,15 @@ const startStop =()=>{
 }
 	return (
 <>
-<h1>Películas</h1>
-<div className="styleBar">
-	
+<div className="row">
+<h1 className="col-6">Películas</h1>
+<div className="styleBar col-6">
+<ButtonSearch  setSearchkey={setSearchkey}  searchMovies={searchMovies} />
+</div>
+<div >
 <a href="#"  onClick={startStop}>Buscar por genero</a>
 {action == true ? <GenreFilms /> : ""}
-<ButtonSearch  setSearchkey={setSearchkey}  searchMovies={searchMovies} />
+</div>
 </div>	
 		<div >
 		

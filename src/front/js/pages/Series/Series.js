@@ -65,9 +65,12 @@ fetchSeries()
 },[])
 
 return(<>
-
- <h1>Series</h1>
+<div className="row">
+<h1 className="col-6 ">Series</h1>
+<div className="col-6">
  <ButtonSearch  setSearchkey={setSearchkey}  searchMovies={searchMovies} />
+ </div>
+ </div>
  <Banner IMAGE_PATH={IMAGE_PATH} movie={serie}  trailer={trailer} setPlaying={setPlaying} playing={playing}/> 
  <div className="container mt-3 ">
 <div className="row">

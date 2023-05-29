@@ -12,6 +12,7 @@
   .styleCards:hover{
     background-color: #1f073f;
     border: solid 3px rgb(34, 34, 53) ;
+    margin: 7px;
    
   }
   .styleCards{
