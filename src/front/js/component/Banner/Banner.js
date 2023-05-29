@@ -54,7 +54,7 @@ return(
                       "Sorry, no trailer available"
                     )}
                     <h1 className="text-white">{movie.title}</h1>
-                    <p className="text-white">{movie.overview}</p>
+                    <p className="text-white overviw">{movie.overview}</p>
                   </div>
                 </div>
               )}

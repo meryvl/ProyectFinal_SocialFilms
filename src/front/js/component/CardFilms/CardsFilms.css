@@ -33,13 +33,20 @@
   .TextCard{
     margin-left:10% ;
     width: 80%;
+    font-size: 15px;
    
   }
   .butonComent{
     text-align:center; 
     margin-top: 5px ;
+    font-size: 13px
   }
   @media(max-width:952px) {
+    .styleCards{
+      width: 40%;
+      margin: 5px;
+     
+      }
 
     .TextCard{
       font-size: 10px;
@@ -54,3 +61,4 @@
     font-size: 10px;
     }
   }
+  
