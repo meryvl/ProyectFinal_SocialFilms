@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
-import { getUser } from "../store/Fetch";
+import { getUser } from "../store/Fetch/Fetch";
 import GoogleLogin from 'react-google-login';
-import { Backend_URL } from "../store/Fetch";
+import { Backend_URL } from "../store/Fetch/Fetch";
 const Login =()=>{
   const navigate = useNavigate();
   const {store, actions} = useAppContext();

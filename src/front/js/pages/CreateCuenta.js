@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../store/appContext";
-import { getUser, register } from "../store/Fetch";
+import { getUser, register } from "../store/Fetch/Fetch";
 const CreateCuenta =()=>{
     const {store, actions} = useAppContext();
 const{ Users , setUsers}=store 
