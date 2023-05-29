@@ -7,7 +7,7 @@ from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
 from api.utils import APIException, generate_sitemap
-from api.models import db, User
+from api.models import db, User , ListsSee , Coments
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
@@ -70,26 +70,7 @@ def serve_any_other_file(path):
     response.cache_control.max_age = 0 # avoid cache memory
     return response
 
-@app.route('/new', methods=['POST'])
-def newUser():
-    body = request.json
 
-    if body["email"] == None or body["password"] == None:
-        return jsonify({"msg": "Insert and email or password"}), 400
-
-    # Crear un nuevo usuario en la base de datos
-    new_user = User(
-            email = body["email"],
-            password = body["password"], 
-            name = body["name"], 
-            lastname = body["lastname"],
-             is_active = True
-        )
-
-    db.session.add(new_user)
-    db.session.commit()
-
-    return jsonify({"code": 200, "mensaje": "Usuario creado correctamente"})
 
 @app.route('/users', methods=['GET'])
 def getUsers():
@@ -127,6 +108,63 @@ def create_token():
     return jsonify({ "token": access_token, "user_id": user.id })
 
 
+
+@app.route('/newSee', methods=['POST'])
+def newSee():
+    body = request.json
+    if body["idFilm"] == None or body["idUsuario"] == None:
+        return jsonify({"msg": "Insert and email or password"}), 400
+    # Crear un nuevo usuario en la base de datos
+    new_See = ListsSee(
+            idFilm = body["idFilm"],
+            NameFilm=body["nameFilm"],
+            url=body["urlApi"],
+            idUsuario= body["idUsuario"],
+        )
+
+    db.session.add(new_See)
+    db.session.commit()
+
+    return jsonify({"code": 200, "mensaje": "Usuario creado correctamente"})
+
+@app.route('/listSee', methods=['GET'])
+def getSee():
+    try:
+        see = ListsSee.query.all()
+        toReturn = [see.serialize() for see in see]
+        return jsonify(toReturn), 200
+    except Exception:
+        return jsonify({"msg": "Ha ocurrido un error"}) , 500
+    
+
+
+@app.route('/newComent', methods=['POST'])
+def newComent():
+    body = request.json
+    if body["text"] == None or body["idFilm"] == None:
+        return jsonify({"msg": "No se han recogido correctamente los datos"}), 400
+    # Crear un nuevo usuario en la base de datos
+    new_Coment = Coments(
+            text =body["text"],
+            idFilm = body["idFilm"],
+            idUsuario= body["idUsuario"],
+        )
+
+    db.session.add(new_Coment)
+    db.session.commit()
+
+    return jsonify({"code": 200, "mensaje": "Usuario creado correctamente"})
+
+@app.route('/Coments', methods=['GET'])
+def getComents():
+    try:
+        coments = Coments.query.all()
+        toReturn = [coments.serialize() for coments in coments]
+        return jsonify(toReturn), 200
+
+    except Exception:
+        return jsonify({"msg": "Ha ocurrido un error"}) , 500
+    
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
