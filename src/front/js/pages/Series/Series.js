@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useAppContext } from "../../store/appContext";
 import "../../pages/Series/Series.css";
-import ButtonSearch from "../../component/ButtonSearch";
+import ButtonSearch from "../../component/Search/ButtonSearch";
 import Banner from "../../component/Banner/Banner";
 const Series =()=>{
 const [series , setSeries] = useState([])

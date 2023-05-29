@@ -8,6 +8,7 @@ body{
 
 
 footer{
+ 
   background-image: url("https://www.islabit.com/wp-content/uploads/2020/12/cintas-online.jpg");
 }
 
@@ -18,21 +19,7 @@ footer{
   
   }
 
-  #imgSeach{
-    border-radius: 10px;
-    width: 30px;
-  }
-  input{
-    
-   border-radius: 5px;
-   color: black;
-  }
-
-  .search{
-    margin: 5px;
-    width: 100%;
-
-  }
+ 
 .taks{
   text-align: center;
   background-color: red;

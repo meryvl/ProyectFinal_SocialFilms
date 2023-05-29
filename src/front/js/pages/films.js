@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../styles/home.css";
 import axios from "axios";
 
-import ButtonSearch from "../component/ButtonSearch";
+import ButtonSearch from "../component/Search/ButtonSearch";
 import { useAppContext } from "../store/appContext";
 
 import CardsFilms from "../component/CardFilms/CardsFilms";
@@ -81,7 +81,9 @@ const startStop =()=>{
 }
 	return (
 <>
+<h1>Películas</h1>
 <div className="styleBar">
+	
 <a href="#"  onClick={startStop}>Buscar por genero</a>
 {action == true ? <GenreFilms /> : ""}
 <ButtonSearch  setSearchkey={setSearchkey}  searchMovies={searchMovies} />

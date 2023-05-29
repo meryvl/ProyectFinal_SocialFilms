@@ -1,0 +1,24 @@
+#imgSeach{
+  
+
+    width: 30px;
+  }
+  input{
+ margin-left: 5%;
+    height: 40px;
+    width: 80%;
+   border-radius: 10px;
+   color: black;
+  }
+
+  .search{
+    margin-right: 20px;
+   font-size: 16px;
+    width: 100%;
+
+  }
+  button{
+   position: relative;
+   top: -5px;
+   margin-left: 10px;
+}
