@@ -70,6 +70,22 @@ def serve_any_other_file(path):
     response.cache_control.max_age = 0 # avoid cache memory
     return response
 
+@app.route('/new', methods=['POST'])
+def newUser():
+    body = request.json
+    if body["email"] == None or body["password"] == None:
+        return jsonify({"msg": "No se han recogido correctamente los datos"}), 400
+    # Crear un nuevo usuario en la base de datos
+    new_User = User(
+            name= body["name"],
+            lastname =body["lastname"],
+            email = body["email"],
+            password=body["password"]
+            
+        )
+
+    db.session.add(new_User)
+    db.session.commit()
 
 
 @app.route('/users', methods=['GET'])
@@ -145,9 +161,10 @@ def newComent():
         return jsonify({"msg": "No se han recogido correctamente los datos"}), 400
     # Crear un nuevo usuario en la base de datos
     new_Coment = Coments(
+            idUsuario= body["idUsuario"],
             text =body["text"],
             idFilm = body["idFilm"],
-            idUsuario= body["idUsuario"],
+            
         )
 
     db.session.add(new_Coment)

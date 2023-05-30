@@ -39,9 +39,9 @@ class Coments(db.Model):
     def serialize(self):
         return {
             "id": self.id,
+            "idUsuario": self.idUsuario,
             "text": self.text,
             "idFilm":self.idFilm,
-            "idUsuario": self.idUsuario,
             "usuario":self.usuario.serialize()
             # do not serialize the password, its a security breach
         }

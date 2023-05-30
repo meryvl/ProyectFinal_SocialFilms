@@ -12,7 +12,7 @@ const urlMovie= `https://api.themoviedb.org/3/movie/${id}?api_key=85acd1db7d013b
 const [detailMovie , setDetailMovie] = useState([])
 const [genres , setGenres] = useState([])
 const [production , setProduction]=useState([])
-const [coment , setComent] = useState()
+
 useEffect(()=>{
     fetch(urlMovie)
     .then(res=>res.json())
@@ -41,7 +41,7 @@ useEffect(()=>{
         <h4 className="text-center">{detailMovie.title}</h4><p>{}</p>
         <p>{detailMovie.original_language}</p>
         <p>{detailMovie.adult == false ? " " : detailMovie.adult }</p>
-        <p>{detailMovie.overview}</p>
+        <p className="fs-6">{detailMovie.overview}</p>
         
        
 
@@ -56,7 +56,7 @@ useEffect(()=>{
         </div>
         </div>
        
-        <Coment />
+        <Coment idFilm={id}/>
         </div>
         </>
     )

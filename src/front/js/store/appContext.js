@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
-
 const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
@@ -10,17 +9,13 @@ const AppContextProvider = ({ children }) => {
 	const URL_IMAGE= "https://image.tmdb.org/t/p/original"
 	const api_KEY ='?api_key=85acd1db7d013b618f9633e17890c3b8'
 
-	const [coments ,setComents] =useState([])
+	
 	const [movies , setMovies]= useState([])
 	const [searchKey , setSearchkey]= useState("")
 	const [trailer , setTrailer] = useState(null)
 	const [movie , setMovie] = useState({title: "Loging Movies"})
 	const [playing , setPlaying] = useState(false);
-	const [Users , setUsers] = useState([])
-
-	const [userActual , setUserActual]=useState([])
-	const [userLogeado, setUserLogeado] = useState(false)
-
+	
 	//funcion de peticion de api
 
  const fetchMovies = async( searchKey) =>{
@@ -42,9 +37,6 @@ if(results.length){
 	await fetchMovie(results[0].id)
 }
 }
-
-
-
 
 const searchMovies =(e)=>{
 	e.preventDefault();
@@ -84,58 +76,6 @@ const selectMovie = async(movie)=>{
 }
  
 
-
-const log = async (email, password) => {
-	const resp = await fetch(`https://3001-meryvl-proyectfinalsoci-yjm6wjttprk.ws-eu97.gitpod.io/login`, { 
-		 method: "POST",
-		 headers: { "Content-Type": "application/json" },
-		 body: JSON.stringify({ email: email, password: password }) 
-	})
-  
-	if(!resp.ok) throw Error("There was a problem in the login request")
-  
-	if(resp.status === 401){
-		 throw("Invalid credentials")
-	}
-	else if(resp.status === 400){
-		 throw ("Invalid email or password format")
-	}
-	const data = await resp.json()
-	// save your token in the localStorage
-   //also you should set your user into the store using the setStore function
-	localStorage.setItem("jwt-token", data.token);
-  
-	return data
-  }
-
-  const getMyTasks = async (email, password) => {
-	// retrieve token form localStorage
-	const token = localStorage.getItem('jwt-token');
-  
-	const resp = await fetch(`https://3001-meryvl-authenticationsy-xqz8br0syug.ws-eu97.gitpod.io/protected`, {
-	   method: 'GET',
-	   headers: { 
-		 "Content-Type": "application/json",
-		 "Authorization": 'Bearer '+token // ⬅⬅⬅ authorization token
-	   } 
-	})
-	if(!resp.ok){
-	  throw Error("There was a problem in the login request")
-	} 
-  
-	else if(resp.status === 403){
-		throw Error("Missing or invalid token");
-	}
-   
-  
-	const data = await resp.json();
-	console.log("This is the data you requested", data);
-	return data
-  
-  }
-
-
-
 const  store ={
   movie,
   movies,
@@ -144,27 +84,20 @@ const  store ={
   searchKey,
   setSearchkey,
   trailer , setTrailer,
-	movie ,
-	playing , setPlaying,
+  playing , setPlaying,
   API_KEY,
   API_URL,
   IMAGE_PATH,
   URL_IMAGE,
-  Users,
-  setUsers,
-  userLogeado, setUserLogeado,
-  coments ,setComents,
   api_KEY,
-  userActual , setUserActual
+ 
 }
 const actions={
   fetchMovies,
   searchMovies,
   fetchMovie,
   selectMovie,
-  log,
-  getMyTasks
-
+  
 }
 
   return (

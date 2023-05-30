@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useAppContext } from "../store/appContext";
-import { Backend_URL } from "../store/Fetch/Fetch";
+import { useAppContextUser } from "../store/Fetch/ContextUser";
+import { fecthDatosUser } from "../store/Fetch/Fetch";
 const PerfilUser =()=>{
-const {store, actions} = useAppContext();
+const {store, actions} = useAppContextUser();
 const{ userActual , setUserActual, Users , setUsers, userLogeado, setUserLogeado}=store
 const [datos, setDatos]=useState([]);
-const Storagetoken= window.localStorage;
-console.log(Storagetoken.user)
-const fecthDatos =async ()=>{
-    const res = await fetch(Backend_URL+`/user/`+Storagetoken.user)
-    const data = await res.json();
-    console.log(data);
-    setDatos(data);
-}
+
 useEffect(()=>{
-    fecthDatos()
+    fecthDatosUser(setDatos)
 },[])
 return(
     <>
@@ -24,5 +17,4 @@ return(
     </>
 )
 }
-
 export default PerfilUser;

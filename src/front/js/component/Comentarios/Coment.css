@@ -1,3 +1,4 @@
+
 .CardComent{
    
     background-color: rgb(6, 6, 65);
@@ -8,6 +9,9 @@ textarea{
     font-size: 13px;
     color: black;
     display: block;
+    padding: 10px;
+    width: 93%;
+    height: 200px;
 }
 button{
     margin-top: 10px;

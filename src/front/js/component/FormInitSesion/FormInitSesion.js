@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../../store/appContext";
+import { useAppContextUser } from "../../store/Fetch/ContextUser";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../../store/Fetch/Fetch";
 import { Backend_URL } from "../../store/Fetch/Fetch";
@@ -8,8 +9,9 @@ import "../../component/FormInitSesion/InitSesion.css"
 
 const FormInitSesion =()=>{
   const navigate = useNavigate();
-  const {store, actions} = useAppContext();
+  const {store, actions} = useAppContextUser();
   const{ userActual , setUserActual, Users , setUsers, userLogeado, setUserLogeado}=store
+  
   const [email , setEmail]= useState();
   const [password , setPassword] =useState();
   const [res , setRes] =useState("")
@@ -26,22 +28,17 @@ const log = async (email, password) => {
        headers: { "Content-Type": "application/json" },
        body: JSON.stringify({ email:email, password:password }) 
   })
-
   if(!resp.ok){
     setRes("There was a problem in the login request")
     throw Error("There was a problem in the login request")
-
   } 
-
   if(resp.status === 401){
     setRes("Invalid credentials")
-       throw("Invalid credentials")
-       
+       throw("Invalid credentials")   
   }
   else if(resp.status === 400){
     setRes("Invalid credentials")
-       throw ("Invalid email or password format")
-       
+       throw ("Invalid email or password format")   
   }
 
   setUserLogeado("true")
@@ -51,7 +48,7 @@ const log = async (email, password) => {
   const data = await resp.json()
   // save your token in the localStorage
  //also you should set your user into the store using the setStore function
-  localStorage.setItem("jwt-token", data.token );
+  localStorage.setItem("jwt-token", data.token ,"user", data.user_id);
   
   setUserLogeado(true)
   setUserActual(data)
@@ -61,10 +58,9 @@ const log = async (email, password) => {
   const hanledLogin=(e , email , password)=>{
     e.preventDefault();
     log(email,password) 
-    }
+  }
     
-   
-    console.log(userActual)
+console.log(userActual)
 
   
 

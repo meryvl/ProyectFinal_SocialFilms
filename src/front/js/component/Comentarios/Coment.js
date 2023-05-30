@@ -1,11 +1,19 @@
-import React from "react";
-import { useAppContext } from "../../store/appContext";
+import React, { useEffect, useState } from "react";
+import { useAppContextUser } from "../../store/Fetch/ContextUser";
 import "../../component/Comentarios/Coment.css"
-const Coment=()=>{
-    const {actions, store}= useAppContext();
+import { getComents , newComent } from "../../store/Fetch/Fetch";
+import { token } from "../../servicios/Token";
+const Coment=({idFilm})=>{
+    const {actions, store}= useAppContextUser();
     const{coments ,setComents} = store;
-const hanledAddComent =()=>{
+    const [listComents , setListComents]=useState([])
 
+useEffect(()=>{
+    getComents(listComents)
+},[])
+const hanledAddComent=()=>{
+
+newComent(token.user , coments , idFilm )
 }
     return(
     <>
@@ -13,10 +21,12 @@ const hanledAddComent =()=>{
     <p>Comentarios</p>
     <labe>
         Escribe comentario:
-    <textarea name="textarea" rows="5" cols="50" >Poner comentario de la película</textarea>
+    <div>
+    <textarea value={coments} onChange={(e)=>setComents(e.target.value)} ></textarea>
+    </div>
     </labe>
    
-    <button>Añadir</button>
+    <button onClick={()=>{hanledAddComent(token.user,coments, idFilm)}}>Añadir</button>
     </div>
     </>
 )

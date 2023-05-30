@@ -1,5 +1,4 @@
 
-
 export const fetchTMDB=(url,state)=>{
     fetch(url)
     .then(res=>res.json())
