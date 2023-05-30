@@ -18,7 +18,7 @@ const AppContextProvider = ({ children }) => {
 	const [playing , setPlaying] = useState(false);
 	const [Users , setUsers] = useState([])
 
-
+	const [userActual , setUserActual]=useState([])
 	const [userLogeado, setUserLogeado] = useState(false)
 
 	//funcion de peticion de api
@@ -154,7 +154,8 @@ const  store ={
   setUsers,
   userLogeado, setUserLogeado,
   coments ,setComents,
-  api_KEY
+  api_KEY,
+  userActual , setUserActual
 }
 const actions={
   fetchMovies,

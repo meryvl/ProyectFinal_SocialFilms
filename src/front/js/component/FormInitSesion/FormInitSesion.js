@@ -9,11 +9,11 @@ import "../../component/FormInitSesion/InitSesion.css"
 const FormInitSesion =()=>{
   const navigate = useNavigate();
   const {store, actions} = useAppContext();
-  const{ Users , setUsers, userLogeado, setUserLogeado}=store
+  const{ userActual , setUserActual, Users , setUsers, userLogeado, setUserLogeado}=store
   const [email , setEmail]= useState();
   const [password , setPassword] =useState();
   const [res , setRes] =useState("")
-
+  
   
 
 useEffect(()=>{
@@ -24,7 +24,7 @@ const log = async (email, password) => {
   const resp = await fetch(Backend_URL+`/login`, { 
        method: "POST",
        headers: { "Content-Type": "application/json" },
-       body: JSON.stringify({ email: email, password: password }) 
+       body: JSON.stringify({ email:email, password:password }) 
   })
 
   if(!resp.ok){
@@ -51,21 +51,20 @@ const log = async (email, password) => {
   const data = await resp.json()
   // save your token in the localStorage
  //also you should set your user into the store using the setStore function
-  localStorage.setItem("jwt-token", data.token);
-
+  localStorage.setItem("jwt-token", data.token );
+  
+  setUserLogeado(true)
+  setUserActual(data)
+  console.log(data)
   return data
 }
   const hanledLogin=(e , email , password)=>{
     e.preventDefault();
-    log(email,password)
-      
+    log(email,password) 
     }
     
-    
-    const responseGoogle = (response) => {
-      console.log(response);
-    }
-    
+   
+    console.log(userActual)
 
   
 
