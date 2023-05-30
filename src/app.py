@@ -73,20 +73,23 @@ def serve_any_other_file(path):
 @app.route('/new', methods=['POST'])
 def newUser():
     body = request.json
+
     if body["email"] == None or body["password"] == None:
-        return jsonify({"msg": "No se han recogido correctamente los datos"}), 400
+        return jsonify({"msg": "Insert and email or password"}), 400
+
     # Crear un nuevo usuario en la base de datos
-    new_User = User(
-            name= body["name"],
-            lastname =body["lastname"],
+    new_user = User(
             email = body["email"],
-            password=body["password"]
-            
+            password = body["password"], 
+            name = body["name"], 
+            lastname = body["lastname"],
+             is_active = True
         )
 
-    db.session.add(new_User)
+    db.session.add(new_user)
     db.session.commit()
 
+    return jsonify({"code": 200, "mensaje": "Usuario creado correctamente"})
 
 @app.route('/users', methods=['GET'])
 def getUsers():
