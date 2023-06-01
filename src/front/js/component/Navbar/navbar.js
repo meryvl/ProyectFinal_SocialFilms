@@ -37,7 +37,7 @@ export const Navbar1 = () => {
 
 			<Navbar.Brand  className="justify-content-end">
 			<Nav.Link href="/login" className="LinkSesion">
-			<img className="iconSesion" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX8f7VOnz8lNzJYkzplysK2YOloLjzJoT8LA&usqp=CAU"/>
+			
 			<p  className="letterSesion">Iniciar Sesion</p>
 			</Nav.Link>
         </Navbar.Brand >
