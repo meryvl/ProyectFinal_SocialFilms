@@ -7,7 +7,7 @@ import { Home } from "./pages/home";
 import Login from "./pages/Login";
 import CreateCuenta from "./pages/CreateCuenta";
 import AppContextProvider from "./store/appContext";
-import AppContextProviderUser from "./store/Fetch/ContextUser";
+import AppContextProviderUser from "./store/ContextUser";
 import { Navbar1 } from "./component/Navbar/navbar";
 import { Footer } from "./component/footer";
 import DetailsFilms from "./pages/DetailsFilms";

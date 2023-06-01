@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { useAppContextUser } from "../../store/Fetch/ContextUser";
+import { useAppContextUser } from "../../store/ContextUser";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../../store/Fetch/Fetch";
 import { Backend_URL } from "../../store/Fetch/Fetch";
@@ -44,24 +44,22 @@ const log = async (email, password) => {
 
   setUserLogeado("true")
   navigate("/perfilUsuario")
-  setEmail("")
-  setPassword("")
   const data = await resp.json()
   // save your token in the localStorage
  //also you should set your user into the store using the setStore function
   localStorage.setItem("jwt-token", data.token , "user", data.user_id);
-  setUserLogeado(true)
-  setUserActual(data.user_id)
+ 
+setUserActual(data.user_id)
  console.log(data)
- console.log(userActual)
   return data
 }
+console.log(userActual)
   const hanledLogin=(e , email , password)=>{
     e.preventDefault();
     log(email,password) 
+   
   }
     
-console.log(userActual)
 console.log(token)
   
 

@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useAppContextUser } from "../store/Fetch/ContextUser";
-import { fecthDatosUser } from "../store/Fetch/Fetch";
-
+import { useAppContextUser } from "../store/ContextUser";
+import { fecthDatosUser, getSee } from "../store/Fetch/Fetch";
+import { Backend_URL } from "../store/Fetch/Fetch";
 const PerfilUser =()=>{
 const {store, actions} = useAppContextUser();
-const{ userActual , setUserActual, Users , setUsers, userLogeado, setUserLogeado}=store
+const{ userActual , setUserActual, Users , setUsers, userLogeado, setUserLogeado, listSee , setListSee}=store
 const [datos, setDatos]=useState([]);
 useEffect(()=>{
-    fecthDatosUser(setDatos)
- 
+    const fecthDatosUser =async (setDatos)=>{
+        const res = await fetch(Backend_URL+`/user/`+userActual)
+        const data = await res.json();
+        console.log(data);
+        setDatos(data);
+      }
+      fecthDatosUser(setDatos)
+    getSee(setListSee)
 },[])
 
 return(
