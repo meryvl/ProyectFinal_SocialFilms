@@ -4,13 +4,13 @@
     background-color: red;
    opacity: 0;
   }
-  .title{font-size: 20px;}
+  .titleCard{font-size: 18px;}
   
   .styleCards:hover .addSee{
   opacity: 1;
   }
   .styleCards:hover{
-    background-color: #1f073f;
+    background-color: #130f25;
     border: solid 3px rgb(34, 34, 53) ;
     margin: 7px;
    
@@ -26,14 +26,14 @@
   }
 
   .imgCards{
+    height: 300px;
     margin-top: 0;
    padding: 0;
    cursor: pointer;
   }
   .TextCard{
     margin-left:10% ;
-    width: 80%;
-    font-size: 15px;
+    font-size: 20px;
    
   }
   .butonComent{

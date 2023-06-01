@@ -13,7 +13,7 @@ return(
 	<img className="imgCards img-fluid" src={`${URL_IMAGE + movie.poster_path}`} alt="" height={450} width="100%" onClick={()=> selectMovie(movie)}/>
 	<AddSee id={movie.id} />
     <div className="TextCard row">
-    <h4 className="text-center title">{movie.title}</h4>
+    <p className="text-center titleCard">{movie.title}</p>
     <p className="col-8 fecha">{movie.release_date}</p>
     <p className="col-4">{movie.vote_average}</p>
     <Stars />
