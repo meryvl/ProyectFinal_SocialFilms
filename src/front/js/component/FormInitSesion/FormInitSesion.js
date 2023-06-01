@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useAppContext } from "../../store/appContext";
+
 import { useAppContextUser } from "../../store/Fetch/ContextUser";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../../store/Fetch/Fetch";
 import { Backend_URL } from "../../store/Fetch/Fetch";
+import { token } from "../../servicios/Token";
 import "../../component/FormInitSesion/InitSesion.css"
 
 const FormInitSesion =()=>{
@@ -48,11 +49,11 @@ const log = async (email, password) => {
   const data = await resp.json()
   // save your token in the localStorage
  //also you should set your user into the store using the setStore function
-  localStorage.setItem("jwt-token", data.token ,"user", data.user_id);
-  
+  localStorage.setItem("jwt-token", data.token , "user", data.user_id);
   setUserLogeado(true)
-  setUserActual(data)
-  console.log(data)
+  setUserActual(data.user_id)
+ console.log(data)
+ console.log(userActual)
   return data
 }
   const hanledLogin=(e , email , password)=>{
@@ -61,7 +62,7 @@ const log = async (email, password) => {
   }
     
 console.log(userActual)
-
+console.log(token)
   
 
 return(<>
