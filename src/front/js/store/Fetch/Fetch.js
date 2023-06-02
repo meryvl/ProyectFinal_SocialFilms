@@ -20,25 +20,34 @@ export const getUser =(setState)=>{
           .catch(error => {console.log(error);}));  //Error handling
       };
 
-export const register = (name, lastname , email , password) => {
-        return(
-         fetch(Backend_URL+'/new',{
-             method:'POST',
-             body:JSON.stringify({name:name, lastname: lastname ,email: email , password: password}),
-             headers:{
-                 "Content-Type": "application/json",
-                 
-             }
-         })
-         .then((res) =>{
-         getUser()
-         
-             
-         })
-         .catch(eror =>console.log(eror))
-     )}
      
-       ;
+     
+   
+
+
+
+      export const register = async(name, lastname , email , password ,setRes) => {
+        const resp = await fetch(Backend_URL+'/new',{ 
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+                   body:JSON.stringify({
+                    name:name, 
+                    lastname: lastname ,
+                    email: email ,
+                    password: password}),
+               }) 
+               if(!resp.ok){
+                setRes("There was a problem in the login request")
+                throw Error("There was a problem in the login request")
+              } 
+              else if(resp.status === 400){
+                setRes("Invalid credentials")
+                   throw ("Invalid email or password format")   
+              }
+            setRes("registro ok")
+            getUser()
+            }
+
 
 export const fecthDatosUser =async (setDatos)=>{
   const res = await fetch(Backend_URL+`/user/`+token.user)

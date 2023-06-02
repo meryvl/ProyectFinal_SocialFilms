@@ -12,7 +12,7 @@ const [name, setName] = useState()
 const [apellidos , setApellidos] = useState()
 const [email , setEmail] = useState()
 const [password , setpassword] = useState()
-
+const [res,setRes]=useState([])
 
 
 useEffect(()=>{
@@ -23,7 +23,7 @@ useEffect(()=>{
 const hanledCreateNewUser =(e,name, lastname , email , password)=>{
     e.preventDefault();
     
-    register(name, lastname , email , password);
+    register(name, lastname , email , password , setRes);
     setApellidos("")
     setEmail("")
     setName("")
@@ -43,6 +43,7 @@ return(<>
     <input className="controls" type="email"  value={email}  placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
     <input className="controls" type="password" value={password}  placeholder="Password" onChange={(e)=>setpassword(e.target.value)}/>
     <input className="botons" type="submit" value="Registrar" onClick={(e)=>{hanledCreateNewUser(e , name , apellidos , email , password)}}/>
+    <p>{res}</p>
     <p><Link to="/login">¿Ya tengo Cuenta?</Link></p>
 
          
