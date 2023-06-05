@@ -12,7 +12,7 @@ export const AddSee =(id)=>{
         console.log(see)
         
         }
-console.log(see)
+
 return(
     <>
     {see.length < 1 ?

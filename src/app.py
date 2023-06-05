@@ -188,11 +188,11 @@ def getComents():
 
 # this only runs if `$ python src/main.py` is executed
 
-@app.route('/Coments/<int:position>', methods=['GET'])
-def getComentFilm(position):
+@app.route('/Coments/<idFilm>', methods=['GET'])
+def getComentFilm(idFilm):
     try:
        
-        filmId =  Coments.query.filter_by(idFilm=position)
+        filmId =  Coments.query.filter_by(idFilm=idFilm).all()
         return jsonify(filmId.serialize()), 200
 
     except Exception:

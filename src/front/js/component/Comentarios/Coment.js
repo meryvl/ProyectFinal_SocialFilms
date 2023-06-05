@@ -8,30 +8,54 @@ const Coment=({idFilm})=>{
     const {actions, store}= useAppContextUser();
     const{coments ,setComents} = store;
     const [listComents , setListComents]=useState([])
-    const [newComentario , setComentario]=useState([])
-
-useEffect(()=>{
-    getComents(setComentario)
-    getComentsFilm(setListComents, idFilm)
+    const [listfilm , setlistFilm]=useState([])
+const [ComentFilm, setComentFilm]=useState([])
+    useEffect(()=>{
+    getComents(setListComents)
+    getComentsFilm(setComentFilm, idFilm)
+    console.log(token)
 },[])
-console.log(token)
+
 const hanledAddComent=()=>{
 newComent( token.user , coments , idFilm )
+getComentsFilm(setComentFilm, idFilm)
 }
     return(
     <>
     <div className="CardComent">
     <p>Comentarios</p>
-    <labe>
-        Escribe comentario:
-    <div>
-    <textarea value={coments} onChange={(e)=>setComents(e.target.value)} ></textarea>
+    
+    {listComents.length ? listComents.map((i)=>{
+        return (<>
+        <div className="cardComent">
+        <div className="d-flex ">
+        <p className="m-2">Usuario:</p>
+        <p className="m-2">{i.usuario.name}</p>
+        </div>
+        <div className="d-flex">
+        <p className="m-2">Comentario:</p>
+        <p className="m-2">{i.text}</p>
+        </div>
+        </div>
+        </>)}
+        ): 
+         <p>Todavia no hay comentarios en esta pelicula, sé el primero en dar tu opinion</p>
+         }
+    
+    {token.length <1? "No se guardaran los comentarios ni nada que escribas si no estas logueado": ""}
+        <labe>
+       Escribe comentario:
+       </labe>
+   <div>
+   <textarea value={coments} onChange={(e)=>setComents(e.target.value)} ></textarea>
+   </div>
+  
+  
+   <button onClick={()=>{hanledAddComent(token.user,coments, idFilm)}}>Añadir</button>
+  
+
     </div>
-    </labe>
-   
-    <button onClick={()=>{hanledAddComent(token.user,coments, idFilm)}}>Añadir</button>
-    </div>
-    </>
+   </> 
 )
 }
 export default Coment;

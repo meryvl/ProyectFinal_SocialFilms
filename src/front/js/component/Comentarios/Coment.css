@@ -18,3 +18,10 @@ button{
     color: black;
     font-size: 14px;
 }
+
+.cardComent{
+    margin: 1%;
+    width: 60%;
+    border-radius: 3px;
+    background-color: rgb(6, 29, 49);
+}
