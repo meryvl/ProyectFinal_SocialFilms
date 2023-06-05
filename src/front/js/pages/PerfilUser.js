@@ -3,20 +3,23 @@ import { useAppContextUser } from "../store/ContextUser";
 import { fecthDatosUser, getSee } from "../store/Fetch/Fetch";
 import { Backend_URL } from "../store/Fetch/Fetch";
 const PerfilUser =()=>{
+const token=window.localStorage;
 const {store, actions} = useAppContextUser();
 const{ userActual , setUserActual, Users , setUsers, userLogeado, setUserLogeado, listSee , setListSee}=store
-const [datos, setDatos]=useState([]);
+const [datos, setDatos]=useState([])
+
 useEffect(()=>{
     const fecthDatosUser =async (setDatos)=>{
-        const res = await fetch(Backend_URL+`/user/`+userActual)
+        const res = await fetch(Backend_URL+`/user/`+token.user)
         const data = await res.json();
         console.log(data);
         setDatos(data);
       }
-      fecthDatosUser(setDatos)
-    getSee(setListSee)
-},[])
 
+   fecthDatosUser(setDatos)  
+   
+},[])
+console.log(token)
 return(
     <>
     <h1>Perfil de Usuario</h1>

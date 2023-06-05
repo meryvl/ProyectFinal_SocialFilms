@@ -49,8 +49,8 @@ nav{
 }
 .linkText{ color: white ; }
 .linkText:hover{
-    background-color: rgb(243, 239, 239);
-   color :black
+  color: red;
+  font-weight:900;
 }
 .linkText-p {
     margin-top: 10px;

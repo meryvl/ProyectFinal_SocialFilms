@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useAppContextUser } from "../../store/ContextUser";
 import "../../component/Comentarios/Coment.css"
-import { getComents , newComent } from "../../store/Fetch/Fetch";
-import { token } from "../../servicios/Token";
+import { getComents , newComent ,getComentsFilm} from "../../store/Fetch/Fetch";
+
 const Coment=({idFilm})=>{
+    const token=window.localStorage
     const {actions, store}= useAppContextUser();
     const{coments ,setComents} = store;
     const [listComents , setListComents]=useState([])
+    const [newComentario , setComentario]=useState([])
 
 useEffect(()=>{
-    getComents(listComents)
+    getComents(setComentario)
+    getComentsFilm(setListComents, idFilm)
 },[])
+console.log(token)
 const hanledAddComent=()=>{
-
-newComent(token.user , coments , idFilm )
+newComent( token.user , coments , idFilm )
 }
     return(
     <>

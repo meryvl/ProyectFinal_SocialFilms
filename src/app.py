@@ -162,10 +162,10 @@ def newComent():
     body = request.json
     if body["text"] == None or body["idFilm"] == None:
         return jsonify({"msg": "No se han recogido correctamente los datos"}), 400
-    # Crear un nuevo usuario en la base de datos
+    # Crear un nuevo coment en la base de datos
     new_Coment = Coments(
             idUsuario= body["idUsuario"],
-            text =body["text"],
+            text=body["text"],
             idFilm = body["idFilm"],
             
         )
@@ -187,6 +187,19 @@ def getComents():
     
 
 # this only runs if `$ python src/main.py` is executed
+
+@app.route('/Coments/<int:position>', methods=['GET'])
+def getComentFilm(position):
+    try:
+       
+        filmId =  Coments.query.filter_by(idFilm=position)
+        return jsonify(filmId.serialize()), 200
+
+    except Exception:
+        return jsonify({"msg": "Ha ocurrido un error"}) , 500
+    
+
+
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3001))
     app.run(host='0.0.0.0', port=PORT, debug=True)

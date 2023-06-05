@@ -5,7 +5,7 @@ import { useAppContextUser } from "../../store/ContextUser";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../../store/Fetch/Fetch";
 import { Backend_URL } from "../../store/Fetch/Fetch";
-import { token } from "../../servicios/Token";
+
 import "../../component/FormInitSesion/InitSesion.css"
 
 const FormInitSesion =()=>{
@@ -16,7 +16,7 @@ const FormInitSesion =()=>{
   const [email , setEmail]= useState();
   const [password , setPassword] =useState();
   const [res , setRes] =useState("")
-  
+  const token= window.localStorage
   
 
 useEffect(()=>{
@@ -47,20 +47,20 @@ const log = async (email, password) => {
   const data = await resp.json()
   // save your token in the localStorage
  //also you should set your user into the store using the setStore function
-  localStorage.setItem("jwt-token", data.token , "user", data.user_id);
- 
-setUserActual(data.user_id)
+  localStorage.setItem("jwt-token", data.token , data.user_id);
+  localStorage.setItem("user",data.user_id);
+
  console.log(data)
   return data
 }
-console.log(userActual)
+
   const hanledLogin=(e , email , password)=>{
     e.preventDefault();
     log(email,password) 
    
   }
     
-console.log(token)
+
   
 
 return(<>
