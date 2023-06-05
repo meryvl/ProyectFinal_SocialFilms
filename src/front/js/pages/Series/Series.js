@@ -4,6 +4,7 @@ import { useAppContext } from "../../store/appContext";
 import "../../pages/Series/Series.css";
 import ButtonSearch from "../../component/Search/ButtonSearch";
 import Banner from "../../component/Banner/Banner";
+
 const Series =()=>{
 const [series , setSeries] = useState([])
 const [serie , setSerie]= useState([])
@@ -77,11 +78,13 @@ return(<>
 {series.map((serie)=>{
 return(
     <>
-  
-    <div className="col-4 mb-2 CardSeries " key={serie.id} >
+    
+    <div key={serie.id} className="col-md-2 mb-3 styleCards">
     <img className="imgCardSeries img-fluid" src={`${URL_IMAGE + serie.poster_path}`} alt="" height={450} width="100%" onClick={()=> selectSerie(serie)}/>
     <h3 className="NameTV">{serie.name}</h3>
-    </div>
+   
+  </div>
+    
   
     </>
     

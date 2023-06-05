@@ -20,7 +20,9 @@ export const Navbar1 = () => {
 			
 			</label>
 			<Navbar.Brand  className="navMenu " id="navMenu">
-			
+			<Nav.Link className="linkText" href="/">
+			Home
+			</Nav.Link>
 			
 			<Nav.Link className="linkText" href="/Films">
 			Peliculas

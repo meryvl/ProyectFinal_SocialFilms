@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { useAppContextUser } from "../../store/ContextUser";
-import { getSee } from "../../store/Fetch/Fetch";
-export const AddSee =(id)=>{
+import { getSee , newSee } from "../../store/Fetch/Fetch";
+import { token } from "../../servicios/Token";
+export const AddSee =(id, nameFilm, url)=>{
     
     const [see , setSee]=useState([])
-    const [classAdd ,setClass]=("addSee")
+    const [listSee, setlistSee]=useState([])
    
-    const hanledSee=(id)=>{
+    const hanledSee=(id, nameFilm, url)=>{
         setSee(id)
         console.log(see)
-        
+        newSee(id , nameFilm, url , token.user)
         }
-
+useEffect(()=>{
+console.log(see)
+getSee(setlistSee)
+},[])
 return(
     <>
     {see.length < 1 ?

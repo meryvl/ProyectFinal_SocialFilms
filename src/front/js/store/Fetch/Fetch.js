@@ -127,3 +127,28 @@ export const getSee=(setState)=>{
           .catch(error => {console.log(error);}));  //Error handling
       };
 
+export const newSee = async(idFilm, nameFilm,urlApi,idUsuario) => {
+  const resp = await fetch(Backend_URL+'/newSee',{ 
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+             body:JSON.stringify({
+              idFilm: idFilm,
+              nameFilm: nameFilm,
+              urlApi: urlApi,
+              idUsuario: idUsuario}),
+         }) 
+         if(!resp.ok){
+          
+          throw Error("There was a problem in the login request")
+        } 
+        else if(resp.status === 400){
+         
+             throw ("Invalid email or password format")   
+        }
+      
+      getSee()
+      }
+
+
+
+
