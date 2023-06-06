@@ -51,8 +51,6 @@ class ListsSee(db.Model):
     __tablename__ = 'listSee'
     id = db.Column(db.Integer, primary_key=True)
     idFilm =db.Column(db.String(100), unique=True, nullable=False)
-    nameFilm =db.Column(db.String(200), unique=True, nullable=False)
-    urlApi = db.Column(db.String(200), unique=True, nullable=False)
     idUsuario = db.Column(db.Integer,db.ForeignKey('user.id'))
     usuario = db.relationship(User)
 
@@ -64,9 +62,7 @@ class ListsSee(db.Model):
         return {
             "id": self.id,
             "idFilm": self.idFilm,
-            "NameFilm":self.nameFilm,
-            "url": self.urlApi,
-            "idUsuario": self.idUsuario,
+            "idUsuario": self.idUsuario.serialize(),
             "usuario":self.usuario.serialize()
             # do not serialize the password, its a security breach
         }

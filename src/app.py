@@ -131,20 +131,18 @@ def create_token():
 @app.route('/newSee', methods=['POST'])
 def newSee():
     body = request.json
-    if body["idFilm"] == None or body["idUsuario"] == None:
-        return jsonify({"msg": "Insert and email or password"}), 400
-    # Crear un nuevo usuario en la base de datos
+    if body['idFilm'] == idFilm and body['idUsuario'] == idUsuario:
+        return jsonify({"msg: Ya esta guardado esta pelicula con este usuario"}), 400
+    # Crear un nuevo new see en la base de datos
     new_See = ListsSee(
             idFilm = body["idFilm"],
-            NameFilm=body["nameFilm"],
-            url=body["urlApi"],
             idUsuario= body["idUsuario"],
         )
 
     db.session.add(new_See)
     db.session.commit()
 
-    return jsonify({"code": 200, "mensaje": "Usuario creado correctamente"})
+    return jsonify({"code": 200, "mensaje": "new see creado"})
 
 @app.route('/listSee', methods=['GET'])
 def getSee():
@@ -155,7 +153,13 @@ def getSee():
     except Exception:
         return jsonify({"msg": "Ha ocurrido un error"}) , 500
     
-
+@app.route('/listSee/<int:idFilm>/<int:idUsuario>' , methods=['DELETE'])
+def deleteSee(idFilm , idUsuario):
+    users= ListsSee.query.filter_by(idUsuario == idUsuario).all()
+    Films= users.query.filter(idFilm == idFilm).first()
+    db.session.delete(Films)
+    db.session.commit()
+    return jsonify({"msg:Eliminado correctamente"}),200 
 
 @app.route('/newComent', methods=['POST'])
 def newComent():
@@ -188,7 +192,7 @@ def getComents():
 
 # this only runs if `$ python src/main.py` is executed
 
-@app.route('/Coments/<idFilm>', methods=['GET'])
+@app.route('/Coments/<int:idFilm>', methods=['GET'])
 def getComentFilm(idFilm):
     try:
        

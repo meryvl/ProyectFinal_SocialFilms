@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { getSee, newSee } from "./Fetch/Fetch";
 const AppContextUser = createContext();
 
 const AppContextProviderUser = ({ children }) => {
@@ -6,17 +7,23 @@ const AppContextProviderUser = ({ children }) => {
 	const [userActual , setUserActual]=useState([])
 	const [userLogeado, setUserLogeado] = useState(false)
   const [coments ,setComents] =useState([])
-  const [listSee , setListSee]=useState([])
+  const [see , setSee]=useState([])
+
+  const hanledSee=(idFilm, idUsuario)=>{
+    newSee(idFilm , idUsuario)
+    getSee(setSee)
+      }
+
 
 
 
 const  store ={
     Users , setUsers,userActual , setUserActual,userLogeado, setUserLogeado,
     coments, setComents,
-    listSee , setListSee
+    see , setSee
 }
 const actions={
-  
+  hanledSee
 }
 
   return (

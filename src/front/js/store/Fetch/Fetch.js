@@ -43,9 +43,12 @@ export const getUser =(setState)=>{
               else if(resp.status === 400){
                 setRes("Invalid credentials")
                    throw ("Invalid email or password format")   
+              }else if(resp.status === 200){
+                setRes("registro ok")
+                getUser()
               }
-            setRes("registro ok")
-            getUser()
+            setRes("ERROR Server")
+            
             }
 
 
@@ -116,38 +119,23 @@ export const getSee=(setState)=>{
             }
           })
           .then(resp => {
-              console.log(resp.ok); // will be true if the response is successfull
               return resp.json(); // (returns promise) will try to parse the result as json as return a promise that you can .then for results
           })
           .then(data => {
-            console.log(data); //this will print on the console the exact object received from the server
             setState(data);
             
           })
           .catch(error => {console.log(error);}));  //Error handling
       };
 
-export const newSee = async(idFilm, nameFilm,urlApi,idUsuario) => {
-  const resp = await fetch(Backend_URL+'/newSee',{ 
+export const newSee =(idFilm , idUsuario)=>{
+  return(fetch(Backend_URL+'/newSee',{ 
     method: "POST",
     headers: { "Content-Type": "application/json" },
-             body:JSON.stringify({
-              idFilm: idFilm,
-              nameFilm: nameFilm,
-              urlApi: urlApi,
-              idUsuario: idUsuario}),
-         }) 
-         if(!resp.ok){
-          
-          throw Error("There was a problem in the login request")
-        } 
-        else if(resp.status === 400){
-         
-             throw ("Invalid email or password format")   
-        }
-      
-      getSee()
-      }
+             body:JSON.stringify({"idFilm":idFilm  ,  "idUsuario": idUsuario}),
+         }).then(res=> console.log("ok")).catch(error=>console.log(error)) 
+         )
+}
 
 
 
