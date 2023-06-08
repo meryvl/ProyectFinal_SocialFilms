@@ -153,13 +153,17 @@ def getSee():
     except Exception:
         return jsonify({"msg": "Ha ocurrido un error"}) , 500
     
-@app.route('/listSee/<int:idFilm>/<int:idUsuario>' , methods=['DELETE'])
-def deleteSee(idFilm , idUsuario):
-    users= ListsSee.query.filter_by(idUsuario == idUsuario).all()
-    Films= users.query.filter(idFilm == idFilm).first()
-    db.session.delete(Films)
-    db.session.commit()
-    return jsonify({"msg:Eliminado correctamente"}),200 
+@app.route('/listSee/<int:position>', methods=['GET'])
+def getSeeUser(position):
+    try:
+        listsSeeUsuario = ListsSee.query.filter_by(usuario_id=position).first()
+        return jsonify(listsSeeUsuario.serialize()), 200
+
+    except Exception:
+        return jsonify({"msg": "Ha ocurrido un error"}) , 500
+    
+       
+        
 
 @app.route('/newComent', methods=['POST'])
 def newComent():

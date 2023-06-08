@@ -43,11 +43,11 @@ export const getUser =(setState)=>{
               else if(resp.status === 400){
                 setRes("Invalid credentials")
                    throw ("Invalid email or password format")   
-              }else if(resp.status === 200){
+              }
                 setRes("registro ok")
                 getUser()
-              }
-            setRes("ERROR Server")
+              
+           
             
             }
 
@@ -123,7 +123,7 @@ export const getSee=(setState)=>{
           })
           .then(data => {
             setState(data);
-            
+            console.log(data)
           })
           .catch(error => {console.log(error);}));  //Error handling
       };
