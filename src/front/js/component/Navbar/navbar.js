@@ -31,9 +31,7 @@ export const Navbar1 = () => {
 			<Nav.Link className="linkText" href="/Series">
 			Series
 			</Nav.Link>
-			<Nav.Link className="linkText" href="/login">
-			Other
-			</Nav.Link>
+			
 			
         </Navbar.Brand >
 

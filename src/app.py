@@ -155,12 +155,10 @@ def getSee():
     
 @app.route('/listSee/<int:position>', methods=['GET'])
 def getSeeUser(position):
-    try:
-        listsSeeUsuario = ListsSee.query.filter_by(usuario_id=position).first()
-        return jsonify(listsSeeUsuario.serialize()), 200
+    
+    listsSeeUsuario = ListsSee.query.filter_by( idUsuario=position).first()
+    return jsonify(listsSeeUsuario.serialize()), 200
 
-    except Exception:
-        return jsonify({"msg": "Ha ocurrido un error"}) , 500
     
        
         

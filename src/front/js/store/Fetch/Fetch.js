@@ -1,5 +1,26 @@
 export const Backend_URL = process.env.BACKEND_URL || "";
 import { token } from "../../servicios/Token";
+
+
+export const get=(setState, url)=>{
+return(fetch(Backend_URL+url, {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json"
+  }
+})
+.then(resp => {
+    console.log(resp.ok); // will be true if the response is successfull
+    return resp.json(); // (returns promise) will try to parse the result as json as return a promise that you can .then for results
+})
+.then(data => {
+  console.log(data); //this will print on the console the exact object received from the serve
+  setState(data)
+  
+})
+.catch(error => {console.log(error);}));  //Error handling
+};
+
 export const getUser =(setState)=>{
     return(
 		fetch(Backend_URL+'/users', {
@@ -19,12 +40,6 @@ export const getUser =(setState)=>{
           })
           .catch(error => {console.log(error);}));  //Error handling
       };
-
-     
-     
-   
-
-
 
       export const register = async(name, lastname , email , password ,setRes) => {
         const resp = await fetch(Backend_URL+'/new',{ 

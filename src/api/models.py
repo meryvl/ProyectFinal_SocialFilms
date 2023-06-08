@@ -62,7 +62,7 @@ class ListsSee(db.Model):
         return {
             "id": self.id,
             "idFilm": self.idFilm,
-            "idUsuario": self.idUsuario.serialize(),
+            "idUsuario": self.idUsuario,
             "usuario":self.usuario.serialize()
             # do not serialize the password, its a security breach
         }
