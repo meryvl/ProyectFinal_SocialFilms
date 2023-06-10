@@ -131,8 +131,7 @@ def create_token():
 @app.route('/newSee', methods=['POST'])
 def newSee():
     body = request.json
-    if body['idFilm'] == idFilm and body['idUsuario'] == idUsuario:
-        return jsonify({"msg: Ya esta guardado esta pelicula con este usuario"}), 400
+    
     # Crear un nuevo new see en la base de datos
     new_See = ListsSee(
             idFilm = body["idFilm"],
@@ -156,7 +155,7 @@ def getSee():
 @app.route('/listSee/<int:position>', methods=['GET'])
 def getSeeUser(position):
     
-    listsSeeUsuario = ListsSee.query.filter_by( idUsuario=position).first()
+    listsSeeUsuario = ListsSee.query.filter_by( idUsuario=position).all()
     return jsonify(listsSeeUsuario.serialize()), 200
 
     
