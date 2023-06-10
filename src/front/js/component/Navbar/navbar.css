@@ -13,6 +13,9 @@ a{
 #check{
    display: none;
 }
+#check2{
+ display: none;
+}
 #btn-iconlist{
     background: rgb(54, 37, 151);
     border-radius: 3px;
@@ -23,14 +26,45 @@ a{
 
 nav{
     border-bottom: solid 1px red;
-    background-color: rgba(6, 6, 14, 0.932);
+    background-color: rgba(20, 20, 54, 0.932);
     padding-left: 2%;
      }
-    
+.imgperfil{
+    margin-left: 10px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer; 
+      }
+
+.listPerfil{
+background-color: rgba(27, 27, 73, 0.932);
+position: absolute;
+right: 25px;
+font-size: 12px;
+z-index: 1;
+display: none;
+padding: 10px;
+border-radius: 4px;
+
+}
+
+.listPerfil li{
+    list-style: none;
+    padding: 2px;
+}
+.listPerfil li:hover{
+background-color: rgba(8, 10, 133, 0.699);
+}
+#check2:checked ~ .listPerfil  {
+    display: block;
+ }
+
+
 .logoWeb{width: 30%;}
 .letterSesion{
+    
     margin: 3px;
-    font-size: 15px;
+    font-size: 13px;
     text-align: end;
     text-decoration: none;
 }
@@ -38,7 +72,6 @@ nav{
     font-weight: 800;
 }
 .LinkSesion:hover{
-   
     font-size: 800;
 }
 
@@ -51,6 +84,7 @@ nav{
 .linkText:hover{
   color: red;
   font-weight:900;
+  
 }
 .linkText-p {
     margin-top: 10px;
