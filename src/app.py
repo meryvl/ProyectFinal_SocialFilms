@@ -113,6 +113,12 @@ def getPeopleId(position):
         return jsonify({"msg": "Ha ocurrido un error"}) , 500
     
 
+@app.route('/user/<int:position>/delete', methods=['DELETE'])
+def deleteUserId(position):
+    Id= User.query.filter_by(id=position).first() 
+    db.session.delete(Id)
+    db.session.commit()
+
 @app.route("/login", methods=["POST"])
 def create_token():
     email = request.json.get("email", None)
