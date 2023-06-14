@@ -5,7 +5,7 @@ import "../../component/CardFilms/CardsFilms.css";
 import ButtonsSee from "../ButtonsSee";
 import { token } from "../../servicios/Token";
 import { useAppContextUser } from "../../store/ContextUser";
-const CardsFilms =({movie,  URL_IMAGE , selectMovie } )=>{
+const CardsFilms =({movie,  URL_IMAGE , selectMovie ,type , selectlist} )=>{
 const url_path=`${URL_IMAGE + movie.poster_path}`
 const{store, actions}= useAppContextUser()
 

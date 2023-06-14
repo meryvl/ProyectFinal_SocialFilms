@@ -81,3 +81,11 @@ input[type = "radio"]{
   border-radius: 80px;
 }
 
+
+.coverImage{
+  min-height: 500px;
+    background-size: cover;
+    background-position:center;
+   
+  
+}
