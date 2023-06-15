@@ -10,6 +10,7 @@ import BannerHome from "../component/home/BannerHome";
 export const Home = () => {
 	const {store, actions} = useAppContext();
 	const {  
+    API_KEY,
 	  API_URL,
 	  api_KEY,
 	  IMAGE_PATH,
@@ -32,30 +33,20 @@ fetchTMDB(top_rade,setTop)
     slidesToScroll: 1
   };
 
-
-
-
 	return (
 <>
 < div className="slider container">
 <Slider {...settings}>
 <div>
-<h3>
+
 <div className="d-flex m-3">
-<BannerHome item={populars} IMAGE_PATH={IMAGE_PATH}/>
-</div>
-</h3>
+<BannerHome item={populars} IMAGE_PATH={IMAGE_PATH} API_URL={API_URL} API_KEY={API_KEY}/>
 </div>
 
-    <div>
-        <h3></h3>
-      </div>
-      <div>
-        <h3></h3>
-      </div>
-      <div>
-     
-      </div>
+</div>
+<div></div>
+<div></div>
+<div></div>
     </Slider>
 </div>
 <div className="m-5">
