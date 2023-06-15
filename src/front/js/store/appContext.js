@@ -8,7 +8,7 @@ const AppContextProvider = ({ children }) => {
 	const IMAGE_PATH= "https://image.tmdb.org/t/p/original"
 	const URL_IMAGE= "https://image.tmdb.org/t/p/original"
 	const api_KEY ='?api_key=85acd1db7d013b618f9633e17890c3b8'
-
+	const img_300="https://image.tmdb.org/t/p/w300"
 	
 	const [movies , setMovies]= useState([])
 	const [searchKey , setSearchkey]= useState("")
@@ -90,7 +90,7 @@ const  store ={
   IMAGE_PATH,
   URL_IMAGE,
   api_KEY,
- 
+img_300
 }
 const actions={
   fetchMovies,

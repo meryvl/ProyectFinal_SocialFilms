@@ -42,10 +42,8 @@ getComentsFilm(setComentFilm, idFilm)
          <p>Todavia no hay comentarios en esta pelicula, sé el primero en dar tu opinion</p>
          }
     
-    {token.length <1? "No se guardaran los comentarios ni nada que escribas si no estas logueado": ""}
-        <labe>
-       Escribe comentario:
-       </labe>
+    {token ? "No se puede escribir ninguna comentario mientras no estes logueado": <labe>Escribe comentario:</labe>}
+        
    <div>
    <textarea value={coments} onChange={(e)=>setComents(e.target.value)} ></textarea>
    </div>

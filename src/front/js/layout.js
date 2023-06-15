@@ -11,6 +11,7 @@ import AppContextProviderUser from "./store/ContextUser";
 import { Navbar1 } from "./component/Navbar/navbar";
 import { Footer } from "./component/footer";
 import DetailsFilms from "./pages/DetailsFilms";
+import DetailSeries from "./pages/DetailSeries";
 import PerfilUser from "./pages/PerfilUser";
 import Series from "./pages/Series/Series";
 //create your first component
@@ -36,6 +37,7 @@ const Layout = () => {
                         <Route element={<CreateCuenta />} path="/createcuenta" />
                         <Route element={<Series />} path="/Series" />
                         <Route path="/View/:id" element={<DetailsFilms />} />
+                        <Route path="/Ver/:id" element={<DetailSeries/>} />
                         <Route element={<PerfilUser />}  path="/perfilUsuario" />
                        
                         <Route element={<h1>Not found!</h1>} />

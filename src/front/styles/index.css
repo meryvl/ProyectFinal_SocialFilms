@@ -89,3 +89,19 @@ input[type = "radio"]{
    
   
 }
+
+.genres{background-color: red;
+width: 100px;
+margin: 3px;
+border-radius: 5px;
+font-size: 13px}
+.production{
+  text-align: center;
+  display: flex;
+  margin-top: 20px;
+ 
+}
+.slider{
+    position: relative;
+    top: +30px;
+}

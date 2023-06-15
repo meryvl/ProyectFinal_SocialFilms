@@ -37,7 +37,7 @@ fetchTMDB(top_rade,setTop)
 
 	return (
 <>
-< div className="container">
+< div className="slider container">
 <Slider {...settings}>
 <div>
 <h3>

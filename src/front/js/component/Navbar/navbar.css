@@ -26,7 +26,7 @@ a{
 
 nav{
     border-bottom: solid 1px red;
-    background-color: rgba(20, 20, 54, 0.932);
+    background-color: rgba(15, 15, 39, 0.932);
     padding-left: 2%;
      }
 .imgperfil{
@@ -108,7 +108,7 @@ background-color: rgba(8, 10, 133, 0.699);
         top: 100%;
         left:0;
         right: 0;
-        background-color:  rgba(6, 6, 14, 0.932);;
+        background-color: rgba(15, 15, 39, 0.932);
         width: 100%;
        justify-content: center;
         left: -100%;
